@@ -40,10 +40,21 @@ public:
         tab1 = lv_tabview_add_tab(tabview, "Tab 1");
         tab2 = lv_tabview_add_tab(tabview, "Tab 2");
         tab3 = lv_tabview_add_tab(tabview, "Motors");
+        lv_tabview_set_tab_load_action(tabview, TabChange);
+         
     }
 
+
+
+
 private:
-    void showMotors()
+    static lv_res_t TabChange(lv_obj_t *tabview, uint16_t tab_id) {
+        if (tab_id==2) showMotors();
+        return LV_RES_OK;
+    }
+
+
+    static void showMotors()
     {
         lv_obj_t *table = lv_table_create(lv_scr_act(), NULL);
         lv_table_set_col_cnt(table, 2);
@@ -58,16 +69,16 @@ private:
         lv_table_set_cell_align(table, 1, 1, LV_LABEL_ALIGN_RIGHT);
         lv_table_set_cell_align(table, 2, 1, LV_LABEL_ALIGN_RIGHT);
         lv_table_set_cell_align(table, 3, 1, LV_LABEL_ALIGN_RIGHT);
-
+        
         lv_table_set_cell_type(table, 0, 0, 2);
-        lv_table_set_cell_type(table, 0, 1, 2);
+        lv_table_set_cell_type(table, 0, 1, 4);
 
         /*Fill the first column*/
         lv_table_set_cell_value(table, 0, 0, "PORT");
         lv_table_set_cell_value(table, 1, 0, "1");
         lv_table_set_cell_value(table, 2, 0, "10");
         lv_table_set_cell_value(table, 3, 0, "11");
-        lv_table_set_cell_value(table, 3, 0, "19");
+        lv_table_set_cell_value(table, 4, 0, "19");
 
         /*Fill the second column*/
         lv_table_set_cell_value(table, 0, 1, "Type");

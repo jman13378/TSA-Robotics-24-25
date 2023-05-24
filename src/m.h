@@ -9,6 +9,7 @@
 
 // controller
 
+pros::Controller controller(pros::E_CONTROLLER_MASTER); 
 
 
 
@@ -19,6 +20,5 @@
 
 // AFTER INCLUDE STMT
 
-pros::Controller controller(pros::E_CONTROLLER_MASTER); 
 UIManager ui;
 
