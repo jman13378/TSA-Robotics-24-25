@@ -30,9 +30,7 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 
 
 */
-// controller
 
-pros::Controller controller(pros::E_CONTROLLER_MASTER); 
 
 
 // port 20 not working

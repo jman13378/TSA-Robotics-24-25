@@ -1,58 +1,90 @@
 #include "main.h"
 
-lv_obj_t * myButton;
+#include <sstream>
 
-lv_obj_t * myButtonLabel;
-lv_obj_t * myLabel;
+using namespace std;
+lv_obj_t *myButton;
+lv_obj_t *tabview;
 
-lv_style_t myButtonStyleREL; //relesed style
-lv_style_t myButtonStylePR; //pressed style
+lv_obj_t *myButtonLabel;
+lv_obj_t *myLabel;
 
-static lv_res_t btn_click_action(lv_obj_t * btn)
+lv_style_t myButtonStyleREL; // relesed style
+lv_style_t myButtonStylePR;  // pressed style
+
+lv_obj_t *tab1;
+lv_obj_t *tab2;
+lv_obj_t *tab3;
+
+static lv_res_t btn_click_action(lv_obj_t *btn)
 {
-    uint8_t id = lv_obj_get_free_num(btn); //id usefull when there are multiple buttons
 
-    if(id == 0)
+    uint8_t id = lv_obj_get_free_num(btn); // id usefull when there are multiple buttons
+
+    if (id == 0)
     {
         char buffer[100];
-		sprintf(buffer, "button was clicked %i seconds from start", pros::millis()/100);
-		lv_label_set_text(myLabel, buffer);
+        sprintf(buffer, "button was clicked %i seconds from start", pros::millis() / 100);
+        lv_label_set_text(myLabel, buffer);
     }
 
     return LV_RES_OK;
 }
-void createButtons()
+
+class UIManager
 {
-    lv_style_copy(&myButtonStyleREL, &lv_style_plain);
-    myButtonStyleREL.body.main_color = LV_COLOR_MAKE(150, 0, 0);
-    myButtonStyleREL.body.radius = 1000;
-    myButtonStyleREL.text.color = LV_COLOR_MAKE(255, 255, 255);
+public:
+    static void init()
+    {
+        tabview = lv_tabview_create(lv_scr_act(), NULL);
+        tab1 = lv_tabview_add_tab(tabview, "Tab 1");
+        tab2 = lv_tabview_add_tab(tabview, "Tab 2");
+        tab3 = lv_tabview_add_tab(tabview, "Motors");
+    }
 
-    lv_style_copy(&myButtonStylePR, &lv_style_plain);
-    myButtonStylePR.body.main_color = LV_COLOR_MAKE(255, 0, 0);
-    myButtonStylePR.body.radius = 1000;
-    myButtonStylePR.text.color = LV_COLOR_MAKE(255, 255, 255);
+private:
+    void showMotors()
+    {
+        lv_obj_t *table = lv_table_create(lv_scr_act(), NULL);
+        lv_table_set_col_cnt(table, 2);
+        lv_table_set_row_cnt(table, 5);
+        lv_obj_align(table, NULL, LV_ALIGN_CENTER, 0, 0);
 
-    myButton = lv_btn_create(lv_scr_act(), NULL); //create button, lv_scr_act() is deafult screen object
-    lv_obj_set_free_num(myButton, 0); //set button is to 0
-    lv_btn_set_action(myButton, LV_BTN_ACTION_CLICK, btn_click_action); //set function to be called on button click
-    lv_btn_set_style(myButton, LV_BTN_STYLE_REL, &myButtonStyleREL); //set the relesed style
-    lv_btn_set_style(myButton, LV_BTN_STYLE_PR, &myButtonStylePR); //set the pressed style
-    lv_obj_set_size(myButton, 200, 50); //set the button size
-    lv_obj_align(myButton, NULL, LV_ALIGN_IN_TOP_LEFT, 10, 10); //set the position to top mid
+        /*Make the cells of the first row center aligned */
+        lv_table_set_cell_align(table, 0, 0, LV_LABEL_ALIGN_CENTER);
+        lv_table_set_cell_align(table, 0, 1, LV_LABEL_ALIGN_CENTER);
 
-    myButtonLabel = lv_label_create(myButton, NULL); //create label and puts it inside of the button
-    lv_label_set_text(myButtonLabel, "Click the Button"); //sets label text
+        /*Align the price values to the right in the 2nd column*/
+        lv_table_set_cell_align(table, 1, 1, LV_LABEL_ALIGN_RIGHT);
+        lv_table_set_cell_align(table, 2, 1, LV_LABEL_ALIGN_RIGHT);
+        lv_table_set_cell_align(table, 3, 1, LV_LABEL_ALIGN_RIGHT);
 
-    myLabel = lv_label_create(lv_scr_act(), NULL); //create label and puts it on the screen
-    lv_label_set_text(myLabel, "Button has not been clicked yet"); //sets label text
-    lv_obj_align(myLabel, NULL, LV_ALIGN_CENTER, 0, 0); //set the position to center
-}
+        lv_table_set_cell_type(table, 0, 0, 2);
+        lv_table_set_cell_type(table, 0, 1, 2);
 
+        /*Fill the first column*/
+        lv_table_set_cell_value(table, 0, 0, "PORT");
+        lv_table_set_cell_value(table, 1, 0, "1");
+        lv_table_set_cell_value(table, 2, 0, "10");
+        lv_table_set_cell_value(table, 3, 0, "11");
+        lv_table_set_cell_value(table, 3, 0, "19");
 
-void showMotors()  {
+        /*Fill the second column*/
+        lv_table_set_cell_value(table, 0, 1, "Type");
+        lv_table_set_cell_value(table, 1, 1, "Motor");
+        lv_table_set_cell_value(table, 2, 1, "Motor");
+        lv_table_set_cell_value(table, 3, 1, "Motor");
+        lv_table_set_cell_value(table, 4, 1, "Motor");
+    }
+    void showMotorInfo(pros::Motor motor)
+    {
+        lv_obj_t *label = lv_label_create(tab3, NULL);
+        std::stringstream ss;
+        ss << "Temp: " << motor.get_temperature() << "\n";
+        ss << "Gearing: " << motor.get_gearing() << "\n";
+        auto temp = ss.str();
 
-}
-void showMotorInfo(pros::Motor motor) {
-
-}
+        auto motor_info = temp.c_str();
+        lv_label_set_text(label, motor_info);
+    }
+};
