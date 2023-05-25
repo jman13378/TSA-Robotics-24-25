@@ -52,7 +52,10 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+	ui.exit(); // exit the ui using the UIManager included in menu.hpp
+
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -85,7 +88,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-
 
 	while (true) {
 		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
