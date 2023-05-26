@@ -854,7 +854,7 @@ class Motor {
 	 */
 	virtual std::uint8_t get_port(void) const;
 
-	private:
+	public:
 	const std::uint8_t _port;
 };
 
