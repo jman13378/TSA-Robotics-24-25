@@ -1,5 +1,6 @@
 #include "main.h"
 #include <typeinfo>
+#include <typeinfo>
 
 #include <sstream>
 using namespace std;
@@ -9,12 +10,15 @@ lv_obj_t *tabview;
 lv_obj_t *tab1;
 lv_obj_t *tab2;
 lv_obj_t *tab3;
+lv_obj_t *tab4;
+
 lv_task_t *task;
-lv_obj_t *gif;
-int *CURRENT_TAB = 0;
+
 
 class UIManager
 {
+
+    
 public:
     static void exit()
     {
@@ -29,12 +33,14 @@ public:
         tabview = lv_tabview_create(lv_scr_act(), NULL);
         /*Create a simple button style*/
         tab1 = lv_tabview_add_tab(tabview, "Tab 1");
-        tab2 = lv_tabview_add_tab(tabview, "Tab 2");
+        tab2 = lv_tabview_add_tab(tabview, "Auton");
         tab3 = lv_tabview_add_tab(tabview, "Motors");
+        tab4 = lv_tabview_add_tab(tabview, "Debug");
         lv_tabview_set_tab_load_action(tabview, TabChange);
     }
 
 private:
+
     static lv_res_t TabChange(lv_obj_t *tabview, uint16_t tab_id)
     {
         if (tab_id == 0)
@@ -77,8 +83,8 @@ private:
             gearing = "200";
         if (motor.get_gearing() == 2)
             gearing = "600";*/
-
-        ss << "Name: " <<  name << " | Temp: " << ((typeid(motor.get_temperature()).name() != "double") ? "Not Connected" : std::to_string(motor.get_temperature())) << "\n";
+        std::string s = std::to_string( motor.get_temperature());
+        ss << "Name: " <<  name << " | Temp: " << ((motor.get_temperature() == INFINITY) ? "Not Connected" :  s.substr(0,s.find("."))) << "\n";
         // ss << "RPM/Velocity/Max: " << motor.get_target_velocity()
         //     << "/" << motor.get_actual_velocity() << "/" << gearing << "\n";
         // ss << "Gearing: " << motor.get_gearing() << "\n";
