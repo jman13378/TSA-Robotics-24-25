@@ -14,14 +14,13 @@ lv_obj_t *tab4;
 
 lv_task_t *task;
 
-
 class UIManager
 {
 
-    
 public:
     static void exit()
     {
+
         lv_task_del(task);
         lv_tabview_clean(tabview);
         lv_obj_del(tabview);
@@ -40,7 +39,6 @@ public:
     }
 
 private:
-
     static lv_res_t TabChange(lv_obj_t *tabview, uint16_t tab_id)
     {
         if (tab_id == 0)
@@ -83,8 +81,11 @@ private:
             gearing = "200";
         if (motor.get_gearing() == 2)
             gearing = "600";*/
-        std::string s = std::to_string( motor.get_temperature());
-        ss << "Name: " <<  name << " | Temp: " << ((motor.get_temperature() == INFINITY) ? "Not Connected" :  s.substr(0,s.find("."))) << "\n";
+        std::string s = std::to_string(motor.get_temperature());
+        ss << "Name: "
+           << name
+           << " | Temp: "
+           << ((motor.get_temperature() == INFINITY) ? "Not Connected" : s.substr(0, s.find("."))) << "\n";
         // ss << "RPM/Velocity/Max: " << motor.get_target_velocity()
         //     << "/" << motor.get_actual_velocity() << "/" << gearing << "\n";
         // ss << "Gearing: " << motor.get_gearing() << "\n";
