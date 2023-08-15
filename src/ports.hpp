@@ -31,11 +31,11 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 // left motor
 // placeholder numbers
 
-pros::Motor FLeft(19, pros::E_MOTOR_GEAR_GREEN, true); // 11W
-pros::Motor RLeft(10, pros::E_MOTOR_GEAR_GREEN, true); // 11W
+pros::Motor FLeft(19, pros::E_MOTOR_GEAR_BLUE, true); // 11W
+pros::Motor RLeft(10, pros::E_MOTOR_GEAR_BLUE, true); // 11W
 
 // left motors
-// placeholder numbers
+// placeholder numbers 
 
-pros::Motor FRight(11, pros::E_MOTOR_GEAR_GREEN, false); // 11W
-pros::Motor RRight(1, pros::E_MOTOR_GEAR_GREEN, false);  // 11W
+pros::Motor FRight(11, pros::E_MOTOR_GEAR_BLUE, false); // 11W
+pros::Motor RRight(1, pros::E_MOTOR_GEAR_BLUE, false);  // 11W

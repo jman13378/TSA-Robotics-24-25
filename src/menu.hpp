@@ -25,7 +25,9 @@ public:
         lv_tabview_clean(tabview);
         lv_obj_del(tabview);
     }
-
+    static void update() {
+        
+    }
     static void init()
     {
         task = lv_task_create(showMotors, 500, LV_TASK_PRIO_HIGHEST, NULL);
@@ -41,6 +43,7 @@ public:
 private:
     static lv_res_t TabChange(lv_obj_t *tabview, uint16_t tab_id)
     {
+        controller.set_text(1,1, to_string(tab_id)); 
         if (tab_id == 0)
         {
         }
