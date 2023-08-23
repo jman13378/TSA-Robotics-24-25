@@ -89,27 +89,59 @@ void autonomous()
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-void opcontrol()
-{
+// void opcontrol()
+// {//{{4_in, 11.5_in}, okapi::imev5BlueTPR}
+// 	auto chassis = okapi::ChassisControllerBuilder().withMotors(-19, -11, 1, 10).y.build();
+// 	auto xModel = std::dynamic_pointer_cast<okapi::HDriveModel>(chassis->getModel());
+// 	while (true)
 
-	while (true)
-	{
-		
+// 	{
 
-		/*
-				int left = master.get_analog(ANALOG_LEFT_Y);
-				int right = master.get_analog(ANALOG_RIGHT_Y);
+// 		/*
+// 				int left = master.get_analog(ANALOG_LEFT_Y);
+// 				int right = master.get_analog(ANALOG_RIGHT_Y);
 
-				left_mtr = left;
-				right_mtr = right;
-		*/
+// 				left_mtr = left;
+// 				right_mtr = right;
+// 		*/
+// 		// drive
+// chassis.
+// 		xModel->tank(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y),
+// 					 controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y));
+// 		// xModel->arcade(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X),controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y),controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y));
 
-		FLeft.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
-		FRight.move(controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y));
+// 		pros::delay(20);
+// 		/*FLeft.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
+// 		FRight.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
 
-		RLeft.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
-		RRight.move(controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_Y));
+// 		RLeft.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
+// 		RRight.move(controller.get_analog(E_CONTROLLER_ANALOG_LEFT_Y));
+// 		Strafe.move(controller.get_analog(E_CONTROLLER_ANALOG_RIGHT_X));
+// 		pros::delay(20);
+// 		*/
+// 	}
+// }
+void opcontrol() {
+    while (true) {
+        // Get joystick values
+        int forward = controller.get_analog(ANALOG_LEFT_Y);
+        int strafe = controller.get_analog(ANALOG_RIGHT_X);
+        int rotate = controller.get_analog(ANALOG_LEFT_X);
 
-		pros::delay(20);
-	}
+        // Calculate motor powers for holonomic drive
+        int frontLeftPower = forward + strafe + rotate;
+        int frontRightPower = forward - strafe - rotate;
+        int backLeftPower = forward - strafe + rotate;
+        int backRightPower = forward + strafe - rotate;
+        int strafePower = controller.get_analog(ANALOG_RIGHT_X);
+
+        // Set motor powers
+        FLeft.move(frontLeftPower);
+        FRight.move(frontRightPower);
+        RLeft.move(backLeftPower);
+        RRight.move(backRightPower);
+        Strafe.move(strafePower);
+
+        delay(20);  // Small delay to control loop speed
+    }
 }

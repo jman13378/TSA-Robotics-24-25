@@ -63,7 +63,6 @@ extern "C" {
 #include "lv_objx/lv_preload.h"
 #include "lv_objx/lv_calendar.h"
 #include "lv_objx/lv_spinbox.h"
-
 #pragma GCC diagnostic pop
 
 /*********************

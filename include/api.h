@@ -75,6 +75,7 @@
 #include "pros/screen.hpp"
 #include "pros/vision.hpp"
 #include "pros/link.hpp"
+#include "okapi/api.hpp"
 #endif
 
 #endif  // _PROS_API_H_
