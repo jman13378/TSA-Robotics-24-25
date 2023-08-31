@@ -10,16 +10,16 @@ using namespace pros;
  */
 void on_center_button()
 {
-	static bool pressed = false;
-	pressed = !pressed;
-	if (pressed)
-	{
-		pros::lcd::set_text(2, "I was pressed!");
-	}
-	else
-	{
-		pros::lcd::clear_line(2);
-	}
+    static bool pressed = false;
+    pressed = !pressed;
+    if (pressed)
+    {
+        pros::lcd::set_text(2, "I was pressed!");
+    }
+    else
+    {
+        pros::lcd::clear_line(2);
+    }
 }
 
 /**
@@ -30,12 +30,12 @@ void on_center_button()
  */
 void initialize()
 {
-	ui.init();
-	// @TODO will mess with later
-	/*pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
+    ui.init();
+    // @TODO will mess with later
+    /*pros::lcd::initialize();
+    pros::lcd::set_text(1, "Hello PROS User!");
 
-	pros::lcd::register_btn1_cb(on_center_button);
+    pros::lcd::register_btn1_cb(on_center_button);
 
 */
 }
@@ -58,7 +58,7 @@ void disabled() {}
  */
 void competition_initialize()
 {
-	ui.exit(); // exit the ui using the UIManager included in menu.hpp
+    ui.exit(); // exit the ui using the UIManager included in menu.hpp
 }
 
 /**
@@ -121,8 +121,18 @@ void autonomous()
 // 		*/
 // 	}
 // }
-void opcontrol() {
-    while (true) {
+void opcontrol()
+{
+    while (true)
+    {
+        int r1=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1);
+        int r2=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2);
+
+    IntakePu1.set_value(r2==1 && r1==0? true : false);
+    IntakePu2.set_value(r2==1 && r1==0? true : false);
+
+        Intake.move((127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2))-(127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)));
+
         // Get joystick values
         int forward = controller.get_analog(ANALOG_LEFT_Y);
         int strafe = controller.get_analog(ANALOG_RIGHT_X);
@@ -142,6 +152,6 @@ void opcontrol() {
         RRight.move(backRightPower);
         Strafe.move(strafePower);
 
-        delay(20);  // Small delay to control loop speed
+        delay(20); // Small delay to control loop speed
     }
 }

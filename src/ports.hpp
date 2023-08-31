@@ -1,4 +1,6 @@
 #include "main.h"
+#define PNEUMATIC1 'A'
+#define PNEUMATIC2 'B'
 
 /*
 
@@ -30,10 +32,15 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 // port 20 not working
 // left motor
 // placeholder numbers
+
 #ifndef _PORTS
 #define _PORTS
 
 
+pros::ADIDigitalOut IntakePu1(PNEUMATIC1);
+pros::ADIDigitalOut IntakePu2(PNEUMATIC2);
+
+pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false);
 
 pros::Motor Strafe(12, pros::E_MOTOR_GEAR_GREEN, true); // 11W
 
