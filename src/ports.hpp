@@ -1,6 +1,13 @@
 #include "main.h"
-#define PNEUMATIC1 'A'
-#define PNEUMATIC2 'B'
+#define PNEUMATICA 'A'
+#define PNEUMATICB 'B'
+#define PNEUMATICC 'C'
+#define PNEUMATICD 'D'
+#define PNEUMATICE 'E'
+#define PNEUMATICF 'F'
+#define PNEUMATICG 'G'
+#define PNEUMATICH 'H'
+
 
 /*
 
@@ -37,8 +44,7 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 #define _PORTS
 
 
-pros::ADIDigitalOut IntakePu1(PNEUMATIC1);
-pros::ADIDigitalOut IntakePu2(PNEUMATIC2);
+pros::ADIDigitalOut IntakePu1(PNEUMATICA);
 
 pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false);
 

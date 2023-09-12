@@ -1,6 +1,6 @@
 #include "m.h"
 #include "main.h"
-
+#include "autoSelect/selection.h"
 using namespace pros;
 /**
  * A callback function for LLEMU's center button.
@@ -123,13 +123,15 @@ void autonomous()
 // }
 void opcontrol()
 {
+    bool intake=false;
     while (true)
     {
         int r1=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1);
         int r2=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2);
+        if (r1==1) intake=false;
+        if (r2==1) intake=true;
 
-    IntakePu1.set_value(r2==1 && r1==0? true : false);
-    IntakePu2.set_value(r2==1 && r1==0? true : false);
+    IntakePu1.set_value(intake);
 
         Intake.move((127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2))-(127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)));
 
