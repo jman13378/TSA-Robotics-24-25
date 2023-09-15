@@ -7,6 +7,8 @@
 #include "gif-pros/gifclass.hpp"
 #include <list>
 #include <iostream>
+#include "ARMS/api.h"
+#include "ARMS/config.h"
 using namespace std;
 
 

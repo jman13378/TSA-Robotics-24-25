@@ -1,7 +1,11 @@
 #include "m.h"
 #include "main.h"
-#include "autoSelect/selection.h"
+#include <iostream>
+#include <sstream>
+
+using namespace arms;
 using namespace pros;
+using namespace std;
 /**
  * A callback function for LLEMU's center button.
  *
@@ -31,6 +35,8 @@ void on_center_button()
 void initialize()
 {
     ui.init();
+    arms::init();
+    
     // @TODO will mess with later
     /*pros::lcd::initialize();
     pros::lcd::set_text(1, "Hello PROS User!");
@@ -74,6 +80,11 @@ void competition_initialize()
  */
 void autonomous()
 {
+      arms::odom::reset({0, 0}, 0);
+
+    chassis::move({48, 0,0}, 100);
+
+
 }
 
 /**
