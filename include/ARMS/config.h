@@ -10,9 +10,9 @@ namespace arms {
 #define ODOM_DEBUG 0
 
 // Negative numbers mean reversed motor
-#define LEFT_MOTORS 1
-#define RIGHT_MOTORS 10
-#define GEARSET pros::E_MOTOR_GEAR_200 // RPM of chassis motors
+#define LEFT_MOTORS -19,-10
+#define RIGHT_MOTORS 11,1
+#define GEARSET pros::E_MOTOR_GEAR_600 // RPM of chassis motors
 
 // Ticks per inch
 #define TPI 1      			  // Encoder ticks per inch of forward robot movement
@@ -23,8 +23,8 @@ namespace arms {
 #define MIDDLE_DISTANCE 0     // Distance from middle wheel to the robot turning center
 
 // Sensors
-#define IMU_PORT 20                           // Port 0 for disabled
-#define ENCODER_PORTS 21, 0, 4                // Port 0 for disabled,
+#define IMU_PORT 2                           // Port 0 for disabled, claw - 20
+#define ENCODER_PORTS 0, 0, 0                // Port 0 for disabled, claw - 21,0,4
 #define EXPANDER_PORT 0                      // Port 0 for disabled
 #define ENCODER_TYPE arms::odom::ENCODER_ADI // The type of encoders
 
@@ -35,9 +35,9 @@ namespace arms {
 #define SETTLE_THRESH_LINEAR .5      // amount of linear movement for settling
 #define SETTLE_THRESH_ANGULAR 1      // amount of angular movement for settling
 #define SETTLE_TIME 250      // amount of time to count as settled
-#define LINEAR_KP 3
+#define LINEAR_KP 2.2 // claw = 2.2
 #define LINEAR_KI 1
-#define LINEAR_KD 2
+#define LINEAR_KD 0
 #define TRACKING_KP 60		 // point tracking turning strength
 #define ANGULAR_KP 1
 #define ANGULAR_KI 0
@@ -46,7 +46,7 @@ namespace arms {
 #define LEAD_PCT .6			 // Go-to-pose lead distance ratio (0-1)
 
 // Auton selector configuration constants
-#define AUTONS "Front", "Back", "Do Nothing" // Names of autonomi, up to 10
+#define AUTONS "Front", "Back", "Do Nothing" // Names of autonomis, up to 10
 #define HUE 0     // Color of theme from 0-359(H part of HSV)
 #define DEFAULT 1 // Default auton selected
 

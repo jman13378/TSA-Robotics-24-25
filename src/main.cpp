@@ -82,7 +82,10 @@ void autonomous()
 {
       arms::odom::reset({0, 0}, 0);
 
-    chassis::move({48, 0,0}, 100);
+    chassis::move({24, 0,0}, 100);
+
+        cout << "s" << odom::getPosition().x << endl;
+
 
 
 }
@@ -137,11 +140,13 @@ void opcontrol()
     bool intake=false;
     while (true)
     {
+        if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
+            
+            chassis::move({-24,0,90},100);}
         int r1=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1);
         int r2=controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2);
         if (r1==1) intake=false;
         if (r2==1) intake=true;
-
     IntakePu1.set_value(intake);
 
         Intake.move((127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2))-(127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)));

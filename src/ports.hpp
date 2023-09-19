@@ -42,7 +42,12 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 
 #ifndef _PORTS
 #define _PORTS
-
+/**
+ * radio - 21
+ * IMU - 2
+ * 
+ *  
+*/
 
 pros::ADIDigitalOut IntakePu1(PNEUMATICA);
 
