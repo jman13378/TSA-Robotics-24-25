@@ -66,7 +66,7 @@ void competition_initialize()
 {
     ui.exit(); // exit the ui using the UIManager included in menu.hpp
 }
-
+bool au=true;
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -80,11 +80,11 @@ void competition_initialize()
  */
 void autonomous()
 {
+    if (au)
       arms::odom::reset({0, 0}, 0);
-
+    au=false;
     chassis::move({24, 0,0}, 100);
-
-        cout << "s" << odom::getPosition().x << endl;
+controller.print(0,0,"x:%g y:%g",odom::getPosition().x,odom::getPosition().y);
 
 
 

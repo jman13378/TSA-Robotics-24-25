@@ -56,12 +56,12 @@ pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false);
 pros::Motor Strafe(12, pros::E_MOTOR_GEAR_GREEN, true); // 11W
 
 
-pros::Motor FLeft(19, pros::E_MOTOR_GEAR_BLUE, true); // 11W
-pros::Motor RLeft(10, pros::E_MOTOR_GEAR_BLUE, true); // 11W
+pros::Motor FLeft(19, pros::E_MOTOR_GEAR_600, true); // 11W
+pros::Motor RLeft(10, pros::E_MOTOR_GEAR_600, true); // 11W
 
 // left motors
 // placeholder numbers 
 
-pros::Motor FRight(11, pros::E_MOTOR_GEAR_BLUE, false); // 11W
-pros::Motor RRight(1, pros::E_MOTOR_GEAR_BLUE, false);  // 11W
+pros::Motor FRight(11, pros::E_MOTOR_GEAR_600, false); // 11W
+pros::Motor RRight(1, pros::E_MOTOR_GEAR_600, false);  // 11W
 #endif /* _MY_HEADER_H_ */
