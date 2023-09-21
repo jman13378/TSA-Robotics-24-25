@@ -24,6 +24,7 @@
  * E_CONTROLLER_MASTER is pedantically correct within the PROS styleguide, but
  * not convenient for most student programmers.
  */
+#include "pros/adi.hpp"
 #define PROS_USE_SIMPLE_NAMES
 
 /**
@@ -79,3 +80,31 @@ void opcontrol(void);
 #endif
 
 #endif  // _PROS_MAIN_H_
+
+#include "ARMS/api.h"
+
+extern pros::Motor Intake;
+extern pros::Motor Catapult;
+extern pros::ADIDigitalOut IntakePu1;
+extern pros::ADIDigitalOut IntakePu2;
+extern pros::ADIDigitalIn CataBumper;
+
+extern pros::Controller controller;
+
+void setDriveMotors();
+
+void setIntakeMotor();
+void setIntake(int poower);
+
+void setPistonStates();
+void setIntakePiston(bool trigger);
+
+int cataControl();
+extern bool shoot;
+extern pros::ADIDigitalIn cataswitch;
+
+void redLeftStart();
+void redRightStart();
+void blueLeftStart();
+void blueRightStart();
+void autonskills();

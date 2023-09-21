@@ -46,9 +46,9 @@ namespace arms {
 #define LEAD_PCT .6			 // Go-to-pose lead distance ratio (0-1)
 
 // Auton selector configuration constants
-#define AUTONS "Front", "Back", "Do Nothing" // Names of autonomis, up to 10
-#define HUE 0     // Color of theme from 0-359(H part of HSV)
-#define DEFAULT 1 // Default auton selected
+//#define AUTONS "Front", "Back", "Do Nothing" // Names of autonomis, up to 10
+//#define HUE 0     // Color of theme from 0-359(H part of HSV)
+//#define DEFAULT 1 // Default auton selected
 
 // Initializer
 inline void init() {
@@ -62,8 +62,8 @@ inline void init() {
 
 	pid::init(LINEAR_KP, LINEAR_KI, LINEAR_KD, ANGULAR_KP, ANGULAR_KI, ANGULAR_KD, TRACKING_KP, MIN_ERROR, LEAD_PCT);
 
-	const char* b[] = {AUTONS, ""};
-	selector::init(HUE, DEFAULT, b);
+	//const char* b[] = {AUTONS, ""};
+	//selector::init(HUE, DEFAULT, b);
 
 }
 
