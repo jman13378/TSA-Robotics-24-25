@@ -16,13 +16,17 @@ int sign(double x) {
 }
 
 void setDriveMotors() {
+    bool tank = false;
+    
     //Tank
     //double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
     //double rightJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
 
     //Arcade
     double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    double rightJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+    double rightJoyStick = controller.get_analog(tank 
+    ? pros::E_CONTROLLER_ANALOG_RIGHT_Y  
+    :pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
     if(fabs(leftJoyStick) < 10)
         leftJoyStick = 0;
@@ -53,5 +57,8 @@ void setDriveMotors() {
     //arms::chassis::tank(percentPowerL, percentPowerR);
 
     //Arcade
-    arms::chassis::arcade(percentPowerL, percentPowerR);
+    if (tank)
+    arms::chassis:: tank(percentPowerL, percentPowerR);
+    else
+    arms::chassis:: arcade(percentPowerR, percentPowerL);
 }

@@ -87,7 +87,6 @@ extern pros::Motor Intake;
 extern pros::Motor Catapult;
 extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
-extern pros::ADIDigitalIn CataBumper;
 
 extern pros::Controller controller;
 
@@ -99,9 +98,10 @@ void setIntake(int poower);
 void setPistonStates();
 void setIntakePiston(bool trigger);
 
+
 int cataControl();
 extern bool shoot;
-extern pros::ADIDigitalIn cataswitch;
+extern pros::ADIDigitalIn CataBumper;
 
 void redLeftStart();
 void redRightStart();
