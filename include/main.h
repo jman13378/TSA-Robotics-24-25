@@ -100,6 +100,7 @@ void setIntakePiston(bool trigger);
 
 
 int cataControl();
+
 extern bool shoot;
 extern pros::ADIDigitalIn CataBumper;
 

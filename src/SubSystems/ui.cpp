@@ -133,7 +133,7 @@ namespace selector{
 		std::stringstream ss;
 
 		ss << "Left Front Temp: " << LFT << "\nLeft Back Temp: " << LBT << "\nRight Front Temp: " << RFT << "\nRight Back Temp: " << RBT;
-
+ 
 		auto temp = ss.str();
 
 		auto drivetemptext = temp.c_str();
@@ -143,23 +143,18 @@ namespace selector{
 	}
 
 	int tabWatcher() {
-		std::cout << "ein" << std::endl;
 		int activeTab = lv_tabview_get_tab_act(tabview);
-		std::cout << "eou" << std::endl;
 		while(1){
 			drivetempinfo();
 			othertempinfo();
 			int currentTab = lv_tabview_get_tab_act(tabview);
-std::cout << "e" << std::endl;
 			if(currentTab != activeTab){
 				activeTab = currentTab;
 				if(activeTab == 0){
-					std::cout << "e1" << std::endl;
 					if(auton == 0) auton = 1;
 					auton = abs(auton);
 					lv_btnm_set_toggle(redBtnm, true, abs(auton)-1);
 				}else if(activeTab == 1){
-					std::cout << "e2" << std::endl;
 					if(auton == 0) auton = -1;
 					auton = -abs(auton);
 					lv_btnm_set_toggle(blueBtnm, true, abs(auton)-1);
@@ -309,7 +304,6 @@ std::cout << "e" << std::endl;
 		lv_obj_set_size(skillsBtn, 450, 50);
 		lv_obj_set_pos(skillsBtn, 0, 100);
 		lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
-std::cout << "etw" << std::endl;
 		// start tab watcher
 		pros::Task tabWatcher_task(tabWatcher);
 
