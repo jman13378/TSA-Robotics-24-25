@@ -4,7 +4,7 @@
 
 //selector configuration
 #define DEFAULT 0
-#define AUTONS "Left", "Right", "Do Nothing"
+#define AUTONS "1-Tile", "2-Tile", "Do Nothing"
 
 namespace selector{
     extern int auton;

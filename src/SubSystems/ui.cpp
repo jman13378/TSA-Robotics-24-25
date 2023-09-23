@@ -143,19 +143,23 @@ namespace selector{
 	}
 
 	int tabWatcher() {
+		std::cout << "ein" << std::endl;
 		int activeTab = lv_tabview_get_tab_act(tabview);
+		std::cout << "eou" << std::endl;
 		while(1){
 			drivetempinfo();
 			othertempinfo();
 			int currentTab = lv_tabview_get_tab_act(tabview);
-
+std::cout << "e" << std::endl;
 			if(currentTab != activeTab){
 				activeTab = currentTab;
 				if(activeTab == 0){
+					std::cout << "e1" << std::endl;
 					if(auton == 0) auton = 1;
 					auton = abs(auton);
 					lv_btnm_set_toggle(redBtnm, true, abs(auton)-1);
 				}else if(activeTab == 1){
+					std::cout << "e2" << std::endl;
 					if(auton == 0) auton = -1;
 					auton = -abs(auton);
 					lv_btnm_set_toggle(blueBtnm, true, abs(auton)-1);
@@ -163,6 +167,7 @@ namespace selector{
 					auton = 0;
 				}
 			}
+			
 
 			pros::delay(20);
 		}
@@ -191,12 +196,13 @@ namespace selector{
 		lv_obj_set_size(obj, 480, 240);
 		lv_obj_set_style(obj, &lv_style_transp);
 		lv_obj_align(obj, NULL, LV_ALIGN_CENTER, 0, 0);
-		static Gif gif("/usd/mygif.gif", obj);
+		static Gif gif("/usd/giphy.gif", obj);
 	}
 
 	void debugRuns() {
 		if (lv_cb_is_checked(cb) == 1 &&  controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
 			shutdown();
+			
 			runauton();
 		}
 	}
@@ -303,7 +309,7 @@ namespace selector{
 		lv_obj_set_size(skillsBtn, 450, 50);
 		lv_obj_set_pos(skillsBtn, 0, 100);
 		lv_obj_align(skillsBtn, NULL, LV_ALIGN_CENTER, 0, 0);
-
+std::cout << "etw" << std::endl;
 		// start tab watcher
 		pros::Task tabWatcher_task(tabWatcher);
 
