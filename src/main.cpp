@@ -43,7 +43,6 @@ void autonomous()
     //   arms::odom::reset({0, 0}, 0);
     // au=false;
     // chassis::move({24, 0,0}, 100);
-    // controller.print(0,0,"x:%g y:%g",odom::getPosition().x,odom::getPosition().y);
 }
 
 void opcontrol() {
