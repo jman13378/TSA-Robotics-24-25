@@ -7,7 +7,7 @@
 namespace arms {
 
 // Debug
-#define ODOM_DEBUG 0
+#define ODOM_DEBUG 1
 
 // Negative numbers mean reversed motor
 #define LEFT_MOTORS 19,10
@@ -35,7 +35,7 @@ namespace arms {
 #define SETTLE_THRESH_LINEAR .5      // amount of linear movement for settling
 #define SETTLE_THRESH_ANGULAR 1      // amount of angular movement for settling
 #define SETTLE_TIME 250      // amount of time to count as settled
-#define LINEAR_KP 250 // claw = 2.2
+#define LINEAR_KP 9 // claw = 2.2
 #define LINEAR_KI 0
 #define LINEAR_KD 0
 #define TRACKING_KP 60		 // point tracking turning strength
