@@ -87,6 +87,7 @@ extern pros::Motor Intake;
 extern pros::Motor Catapult;
 extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
+extern bool IntakeOut;
 
 extern pros::Controller controller;
 

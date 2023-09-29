@@ -35,13 +35,13 @@ bool shoot = false;
 int cataControl() {
     bool beenPressed = false;
     while (1) {
-        if (!CataBumper.get_value() && !beenPressed){
+        if (!CataBumper.get_value() && !beenPressed && IntakeOut==true){
             Catapult.move(127);
     }
         else if (CataBumper.get_value() || beenPressed) {
             beenPressed = true;
             Catapult.move(0);
-            if (beenPressed && (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A) || shoot)) {
+            if (beenPressed && IntakeOut==true && (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A) || shoot)) {
                 Catapult.move(127);
                 wait();
                 beenPressed = false;

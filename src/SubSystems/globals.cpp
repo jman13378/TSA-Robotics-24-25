@@ -43,3 +43,4 @@ pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false, pros::E_MOTOR_ENCODER_ROTA
 pros::Motor  Catapult(3, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
+bool IntakeOut = false;
