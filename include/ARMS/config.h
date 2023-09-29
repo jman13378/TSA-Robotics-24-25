@@ -15,7 +15,7 @@ namespace arms {
 #define GEARSET pros::E_MOTOR_GEAR_600 // RPM of chassis motors
 
 // Ticks per inch
-#define TPI 1*1170.47 / 24     			  // Encoder ticks per inch of forward robot movement
+#define TPI 48.7695833//1*1170.47 / 24     			  // Encoder ticks per inch of forward robot movement
 #define MIDDLE_TPI 1          // Ticks per inch for the middle wheel
 
 // Tracking wheel distances
@@ -26,7 +26,7 @@ namespace arms {
 #define IMU_PORT 2                           // Port 0 for disabled, claw - 20
 #define ENCODER_PORTS 0, 0, 0                // Port 0 for disabled, claw - 21,0,4
 #define EXPANDER_PORT 0                      // Port 0 for disabled
-#define ENCODER_TYPE arms::odom::ENCODER_ADI // The type of encoders
+#define ENCODER_TYPE arms::odom::ENCODER_ROTATION // The type of encoders
 
 // Movement tuning
 #define SLEW_STEP 8          // Smaller number = more slew
