@@ -36,9 +36,9 @@ void competition_initialize() {}
 void autonomous()
 {
     selector::shutdown();
-
+    
     selector::runauton();
-
+    
     // if (au)
     //   arms::odom::reset({0, 0}, 0);
     // au=false;

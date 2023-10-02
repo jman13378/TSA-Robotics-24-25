@@ -1,7 +1,8 @@
 #include "ARMS/chassis.h"
 #include "gif-pros/gifclass.hpp"
 #include <sstream>
-
+#include <iostream>
+#include <map>
 namespace selector{
 
 	int auton;
@@ -169,6 +170,8 @@ namespace selector{
 	}
 
 	void runauton() {
+
+
 		if (auton == 0)
 			autonskills();
 
