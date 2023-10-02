@@ -96,7 +96,7 @@ void setDriveMotors();
 
 void setIntakeMotor();
 void setIntake(int power);
-
+bool isTriBall(pros::Optical op);
 void setPistonStates();
 void setIntakePiston(bool trigger);
 
