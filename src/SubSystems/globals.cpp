@@ -35,7 +35,9 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 
 pros::ADIDigitalOut IntakePu1('A');
 pros::ADIDigitalOut IntakePu2('B');
-pros::Optical IntakeOptical(14);
+pros::Optical IntakeOpticalIn(14);
+
+pros::Optical IntakeOpticalOut(15);
 pros::ADIDigitalIn CataBumper('C');
 
 pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false, pros::E_MOTOR_ENCODER_ROTATIONS);
