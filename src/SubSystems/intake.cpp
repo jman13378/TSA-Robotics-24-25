@@ -15,8 +15,9 @@ bool isTriBall(pros::Optical op)
 }
 void setIntakeMotor()
 {
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-        overrideIntake= (overrideIntake ? false : true);
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP))
+    {
+        overrideIntake = (overrideIntake ? false : true);
     }
     controller.print(0, 0, "override:%g", (overrideIntake ? 1.0 : 0.0));
     bool isReverse = false;
@@ -26,16 +27,28 @@ void setIntakeMotor()
     isForward = (intakePower < 0 ? false : true);
     if (!overrideIntake)
     {
-        // if tri ball is detected and the intake is spinning forward
-        if (isTriBall(IntakeOpticalIn) && isForward)
-        {
-            setIntake(0);
-            //return;
-        }
-        // if tri ball is detected and the intake is NOT spinning backwards
+        printf("1");
 
-        if (isTriBall(IntakeOpticalOut) && !isReverse)
-            intakePower = 127;
+            // if tri ball is detected and the intake is spinning forward
+            if (isTriBall(IntakeOpticalIn) && isForward)
+        {
+            printf("2");
+
+                intakePower = 0;
+            // return;
+        }
+        printf("3");
+            // if tri ball is detected and the intake is NOT spinning backwards
+
+            if (isTriBall(IntakeOpticalOut) && !isReverse)
+        {
+            printf("4");
+
+                intakePower = 127;
+        }
+        printf("5");
     }
-    setIntake(intakePower);
+    printf("6\n");
+
+        setIntake(intakePower);
 }

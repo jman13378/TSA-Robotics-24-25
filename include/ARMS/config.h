@@ -7,7 +7,7 @@
 namespace arms {
 
 // Debug
-#define ODOM_DEBUG 1
+#define ODOM_DEBUG 0
 
 // Negative numbers mean reversed motor
 #define LEFT_MOTORS 19,10
