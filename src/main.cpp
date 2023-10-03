@@ -10,6 +10,7 @@ void initialize() {
 
     selector::init();
 
+arms::odom::imu.reset();
     while ((*arms::odom::imu).is_calibrating())
         pros::delay(10);
 }
