@@ -27,7 +27,7 @@ namespace arms {
 #define ENCODER_PORTS 0, 0, 0                // Port 0 for disabled, claw - 21,0,4
 #define EXPANDER_PORT 0                      // Port 0 for disabled
 #define ENCODER_TYPE arms::odom::ENCODER_ROTATION // The type of encoders
-
+ 
 // Movement tuning
 #define SLEW_STEP 8          // Smaller number = more slew
 #define LINEAR_EXIT_ERROR 1  // default exit distance for linear movements
@@ -39,7 +39,7 @@ namespace arms {
 #define LINEAR_KI 0
 #define LINEAR_KD 0
 #define TRACKING_KP 60		 // point tracking turning strength
-#define ANGULAR_KP 1
+#define ANGULAR_KP .25 
 #define ANGULAR_KI 0
 #define ANGULAR_KD 0
 #define MIN_ERROR 5          // Minimum distance to target before angular componenet is disabled

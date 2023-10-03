@@ -173,19 +173,19 @@ namespace selector{
 
 
 		if (auton == 0)
-			autonskills();
+			autons::autonskills();
 
 		else if (auton == 1)
-			redLeftStart();
+			autons::redLeftStart();
 		
 		else if (auton == 2)
-			redRightStart();
+			autons::redRightStart();
 
 		else if (auton == -1)
-			blueLeftStart();
+			autons::blueLeftStart();
 
 		else if (auton == -2)
-			blueRightStart();
+			autons::blueRightStart();
 	}
 
 	void shutdown() {
@@ -204,7 +204,7 @@ namespace selector{
 			runauton();
 		}
 	}
-
+ 
 	void init(int default_auton, const char **autons){
 
 		// lvgl theme

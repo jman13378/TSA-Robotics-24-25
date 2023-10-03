@@ -1,9 +1,12 @@
 #include "main.h"
+namespace autons
+{
 
-void redLeftStart() {
+    void redLeftStart()
+    {
+    }
 
-}
-
-void redRightStart() {
-
+    void redRightStart()
+    {
+    }
 }
