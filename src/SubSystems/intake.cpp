@@ -1,6 +1,6 @@
 #include "main.h"
 
-int range[2]{111, 77};
+int hueRange[2]{111, 77};
 bool overrideIntake = false;
 //     Intake.move((127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2))-(127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)));
 
@@ -11,14 +11,14 @@ void setIntake(int power)
 bool isTriBall(pros::Optical op)
 {
     double hue = op.get_hue();
-    return (hue <= range[0] && hue >= range[1]);
+    return (hue <= hueRange[0] && hue >= hueRange[1]);
 }
 void setIntakeMotor()
 {
     if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
         overrideIntake= (overrideIntake ? false : true);
     }
-    controller.print(0, 0, "override:%g", 1/*(overrideIntake ? 0 : 0)*/);
+    controller.print(0, 0, "override:%g", (overrideIntake ? 1.0 : 0.0));
     bool isReverse = false;
     bool isForward = false;
     int intakePower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
