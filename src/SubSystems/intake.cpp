@@ -15,9 +15,10 @@ bool isTriBall(pros::Optical op)
 }
 void setIntakeMotor()
 {
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
         overrideIntake= (overrideIntake ? false : true);
     }
+    controller.print(0, 0, "override:%g", 1/*(overrideIntake ? 0 : 0)*/);
     bool isReverse = false;
     bool isForward = false;
     int intakePower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
@@ -32,7 +33,7 @@ void setIntakeMotor()
         }
 
         if (isTriBall(IntakeOpticalOut) && !isReverse)
-            intakePower = 127;
+            intakePower = 12;
     }
     setIntake(intakePower);
 }
