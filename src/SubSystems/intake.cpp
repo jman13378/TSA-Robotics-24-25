@@ -1,7 +1,7 @@
 #include "main.h"
 
 int range[2]{111, 77};
-
+bool overrideIntake = false;
 //     Intake.move((127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2))-(127*controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1)));
 
 void setIntake(int power)
@@ -15,18 +15,24 @@ bool isTriBall(pros::Optical op)
 }
 void setIntakeMotor()
 {
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
+        overrideIntake= (overrideIntake ? false : true);
+    }
     bool isReverse = false;
     bool isForward = false;
     int intakePower = 127 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
     isReverse = (intakePower > 0 ? false : true);
     isForward = (intakePower < 0 ? false : true);
-    if (isTriBall(IntakeOpticalIn) && isForward)
+    if (!overrideIntake)
     {
-        setIntake(0);
-        return;
-    }
+        if (isTriBall(IntakeOpticalIn) && isForward)
+        {
+            setIntake(0);
+            return;
+        }
 
-    if (isTriBall(IntakeOpticalOut) && !isReverse)
-        intakePower = 127;
+        if (isTriBall(IntakeOpticalOut) && !isReverse)
+            intakePower = 127;
+    }
     setIntake(intakePower);
 }
