@@ -27,26 +27,26 @@ void setIntakeMotor()
     isForward = (intakePower < 0 ? false : true);
     if (!overrideIntake)
     {
-        printf("1");
+        printf("1\n");
 
             // if tri ball is detected and the intake is spinning forward
             if (isTriBall(IntakeOpticalIn) && isForward)
         {
-            printf("2");
+            printf("2\n");
 
                 intakePower = 0;
             // return;
         }
-        printf("3");
+        printf("3\n");
             // if tri ball is detected and the intake is NOT spinning backwards
 
             if (isTriBall(IntakeOpticalOut) && !isReverse)
         {
-            printf("4");
+            printf("4\n");
 
                 intakePower = 127;
         }
-        printf("5");
+        printf("5\n");
     }
     printf("6\n");
 
