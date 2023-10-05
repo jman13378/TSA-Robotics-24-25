@@ -88,7 +88,11 @@ extern pros::Motor Intake;
 extern pros::Motor Catapult;
 extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
+extern pros::ADIDigitalOut WingPu1;
+extern pros::ADIDigitalOut WingPu2;
+
 extern bool IntakeOut;
+extern bool WingsOut;
 extern bool overrideIntake;
 extern pros::Optical IntakeOpticalIn;
 extern pros::Optical IntakeOpticalOut;
@@ -101,7 +105,7 @@ void setIntake(int power);
 bool isTriBall(pros::Optical op);
 void setPistonStates();
 void setIntakePiston(bool trigger);
-
+void setWingPiston(bool trigger);
 int cataControl();
 
 extern bool shoot;

@@ -15,7 +15,7 @@ bool isTriBall(pros::Optical op)
 }
 void setIntakeMotor()
 {
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP))
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP))
     {
         overrideIntake = (overrideIntake ? false : true);
     }
