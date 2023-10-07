@@ -4,6 +4,31 @@
 #include "pros/motors.h"
 
 /*
+UP - Override Intake
+LEFT - 
+RIGHT - 
+DOWN - 
+X - 
+A - cata
+B - 
+Y - 
+L1 - INTAKE OUT
+L2 - INTAKE IN
+R1 - INTAKE PNU OUT/IN
+R2 - WINGS PNU OUT/IN
+1 - 
+2 - tank right
+3 - tank left
+4 - 
+
+
+
+
+*/
+
+
+
+/*
 <R12> Motors are limited. Robots may use any combination of VEX V5 Smart Motors (11W) (276-
 4840) and V5 Smart Motors (5.5W) (276-4842), within the following criteria:
         a. The combined power of all motors (11W & 5.5W) must not exceed 88W.
