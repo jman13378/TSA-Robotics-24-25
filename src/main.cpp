@@ -2,16 +2,19 @@
 #include "ARMS/config.h"
 #include "ui.h"
 
-void initialize() {
+void initialize()
+{
     pros::Task CataController(cataControl);
-    
+
     arms::init();
     arms::selector::destroy();
 
     selector::init();
-
     while ((*arms::odom::imu).is_calibrating())
+    {
         pros::delay(10);
+        arms::odom::imu.reset();
+    }
 }
 
 /**
@@ -32,22 +35,23 @@ void disabled() {}
  */
 void competition_initialize() {}
 
-
 void autonomous()
 {
     selector::shutdown();
-    
+
     selector::runauton();
-    
+
     // if (au)
     //   arms::odom::reset({0, 0}, 0);
     // au=false;
     // chassis::move({24, 0,0}, 100);
 }
 
-void opcontrol() {
+void opcontrol()
+{
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-    while (true) {
+    while (true)
+    {
         selector::debugRuns();
         setDriveMotors();
         setIntakeMotor();
