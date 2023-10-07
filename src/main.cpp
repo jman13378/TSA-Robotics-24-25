@@ -10,12 +10,11 @@ void initialize()
     arms::selector::destroy();
 
     selector::init();
-    while ((*arms::odom::imu).is_calibrating())
+    /*while ((*arms::odom::imu).is_calibrating())
     {
         pros::delay(10);
-        arms::odom::imu.reset();
         
-    }
+    }*/
 }
 
 /**

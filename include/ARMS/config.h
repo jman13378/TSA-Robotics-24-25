@@ -23,7 +23,7 @@ namespace arms {
 #define MIDDLE_DISTANCE 0     // Distance from middle wheel to the robot turning center
 
 // Sensors
-#define IMU_PORT 2                           // Port 0 for disabled
+#define IMU_PORT 0                         // Port 0 for disabled
 #define ENCODER_PORTS 0, 0, 0                // Port 0 for disabled
 #define EXPANDER_PORT 0                      // Port 0 for disabled
 #define ENCODER_TYPE arms::odom::ENCODER_ROTATION // The type of encoders
@@ -39,7 +39,7 @@ namespace arms {
 #define LINEAR_KI 0
 #define LINEAR_KD 0
 #define TRACKING_KP 60		 // point tracking turning strength
-#define ANGULAR_KP 0
+#define ANGULAR_KP 4
 #define ANGULAR_KI 0
 #define ANGULAR_KD 0
 #define MIN_ERROR 5          // Minimum distance to target before angular componenet is disabled
