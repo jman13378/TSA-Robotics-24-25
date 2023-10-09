@@ -2,6 +2,7 @@
 #include "ARMS/config.h"
 #include "ui.h"
 
+bool debug = true;
 void initialize()
 {
     pros::Task CataController(cataControl);
@@ -9,11 +10,10 @@ void initialize()
     arms::init();
     arms::selector::destroy();
 
-    selector::init();
+    selector::init(-1);
     while ((*arms::odom::imu).is_calibrating())
     {
         pros::delay(10);
-        
     }
 }
 
@@ -49,9 +49,13 @@ void autonomous()
 
 void opcontrol()
 {
+    arms::chassis::move({0, 0, 90}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
+        if (debug)
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT))
+                selector::init();
         selector::debugRuns();
         setDriveMotors();
         setIntakeMotor();

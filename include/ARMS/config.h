@@ -35,9 +35,9 @@ namespace arms {
 #define SETTLE_THRESH_LINEAR .5      // amount of linear movement for settling
 #define SETTLE_THRESH_ANGULAR 1      // amount of angular movement for settling
 #define SETTLE_TIME 250      // amount of time to count as settled
-#define LINEAR_KP 9 
+#define LINEAR_KP 8
 #define LINEAR_KI 0
-#define LINEAR_KD 0
+#define LINEAR_KD 5
 #define TRACKING_KP 60		 // point tracking turning strength
 #define ANGULAR_KP 2
 #define ANGULAR_KI 0

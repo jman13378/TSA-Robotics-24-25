@@ -219,7 +219,7 @@ namespace selector{
 
 		autonCount = i;
 		auton = default_auton;
-
+		if (tabview) lv_tabview_clean(tabview);
 		// create a tab view object
 		tabview = lv_tabview_create(lv_scr_act(), NULL);
 
