@@ -91,6 +91,7 @@ extern pros::ADIDigitalOut IntakePu2;
 extern pros::ADIDigitalOut WingPu1;
 extern pros::ADIDigitalOut WingPu2;
 
+extern bool debug;
 extern bool IntakeOut;
 extern bool WingsOut;
 extern bool overrideIntake;
