@@ -1,13 +1,16 @@
 #include "main.h"
 
-void wait() {
+void wait()
+{
     bool b = false;
 
     int tempTime = pros::millis();
     int curTime = pros::millis();
 
-    if (!b) {
-        while (tempTime+380 >= curTime) {
+    if (!b)
+    {
+        while (tempTime + 380 >= curTime)
+        {
             pros::delay(1);
             curTime = pros::millis();
         }
@@ -15,14 +18,17 @@ void wait() {
     }
 }
 
-void wait2() {
+void wait2()
+{
     bool b = false;
 
     int tempTime = pros::millis();
     int curTime = pros::millis();
 
-    if (!b) {
-        while (tempTime+170 >= curTime) {
+    if (!b)
+    {
+        while (tempTime + 170 >= curTime)
+        {
             pros::delay(1);
             curTime = pros::millis();
         }
@@ -32,16 +38,21 @@ void wait2() {
 
 bool shoot = false;
 
-int cataControl() {
+int cataControl()
+{
     bool beenPressed = false;
-    while (1) {
-        if (!CataBumper.get_value() && !beenPressed && IntakeOut==true){
+    while (1)
+    {
+        if (!CataBumper.get_value() && !beenPressed && IntakeOut == true)
+        {
             Catapult.move(127);
-    }
-        else if (CataBumper.get_value() || beenPressed) {
+        }
+        else if (CataBumper.get_value() || beenPressed)
+        {
             beenPressed = true;
             Catapult.move(0);
-            if (beenPressed && IntakeOut==true && (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A) || shoot)) {
+            if (beenPressed && IntakeOut == true && (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A) || shoot))
+            {
                 Catapult.move(127);
                 wait();
                 beenPressed = false;

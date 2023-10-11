@@ -5,7 +5,8 @@ namespace autons
     {
         arms::odom::reset({0, 0}, 0);
         arms::chassis::turn(90, 100, arms::ASYNC);
-        while (true) {
+        while (true)
+        {
             printf("heading: %lf | target: %lf\n", arms::odom::getHeading(), arms::pid::angularTarget);
             pros::delay(10);
         }

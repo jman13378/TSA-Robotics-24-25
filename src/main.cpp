@@ -49,7 +49,7 @@ void autonomous()
 
 void opcontrol()
 {
-    //arms::chassis::move({0, 0, 0}, 100, 0.25);
+    // arms::chassis::move({0, 0, 0}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
