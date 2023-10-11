@@ -5,28 +5,26 @@
 
 /*
 UP - Override Intake
-LEFT - 
-RIGHT - 
-DOWN - 
-X - 
+LEFT -
+RIGHT -
+DOWN -
+X -
 A - cata
-B - 
-Y - 
+B -
+Y -
 L1 - INTAKE OUT
 L2 - INTAKE IN
 R1 - INTAKE PNU OUT/IN
 R2 - WINGS PNU OUT/IN
-1 - 
+1 -
 2 - tank right
 3 - tank left
-4 - 
+4 -
 
 
 
 
 */
-
-
 
 /*
 <R12> Motors are limited. Robots may use any combination of VEX V5 Smart Motors (11W) (276-
@@ -55,8 +53,10 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
  * radio - 21
  * IMU - 2
  *
- *  
-*/
+ *
+ */
+
+int hueRange[2][2] = {{111, 77}};
 
 pros::ADIDigitalOut IntakePu1('A');
 
@@ -69,9 +69,9 @@ pros::Optical IntakeOpticalIn(14);
 
 pros::Optical IntakeOpticalOut(15);
 
-pros::Motor Intake(13,pros::E_MOTOR_GEAR_GREEN,false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Intake(13, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
-pros::Motor  Catapult(3, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Catapult(3, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 bool IntakeOut = false;

@@ -1,20 +1,30 @@
 #include "main.h"
 namespace autons
 {
+
+    void setHue()
+    {
+        hueRange[1][0] = 215;
+        hueRange[1][1] = 196;
+    }
     void blueLeftStart()
     {
+        // account for the blue triballs(pre-load)
+        setHue();
 
+        IntakeOut = true;
+        setIntakePiston(true);
         arms::odom::reset({0, 0}, 0); // Reset point
-
-        arms::chassis::move(48, 100, 0.25); // Move t o get roller
-        arms::chassis::turn(90, 100);
-
-        arms::chassis::move(24, 100, 0.25); // Move to get roller
-        arms::chassis::turn(45, 100);
-        arms::chassis::move(24, 100, 0.25,arms::REVERSE); // Move to get roller
+        arms::chassis::move(42, 100, 0.25);
+        arms::chassis::turn(270, 100);
+        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
+            Intake.move(-127);
+        Intake.move(0);
+        arms::chassis::move(15,100,0.25);
     }
 
     void blueRightStart()
     {
+        setHue();
     }
 }

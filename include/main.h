@@ -91,6 +91,7 @@ extern pros::ADIDigitalOut IntakePu2;
 extern pros::ADIDigitalOut WingPu1;
 extern pros::ADIDigitalOut WingPu2;
 
+extern int hueRange[2][2];
 extern bool debug;
 extern bool IntakeOut;
 extern bool WingsOut;

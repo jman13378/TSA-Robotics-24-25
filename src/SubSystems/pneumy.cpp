@@ -16,11 +16,11 @@ void setPistonStates()
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1))
     {
         IntakeOut = IntakeOut ? false : true;
-        setIntakePiston(IntakeOut);
     }
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2))
     {
         WingsOut = WingsOut ? false : true;
-        setWingPiston(WingsOut);
     }
+    setIntakePiston(IntakeOut);
+    setWingPiston(WingsOut);
 }
