@@ -5,7 +5,7 @@ namespace autons
     void setHue()
     {
         hueRange[1][0] = 215;
-        hueRange[1][1] = 196;
+        hueRange[1][1] = 140;
     }
     void blueLeftStart()
     {
@@ -21,10 +21,14 @@ namespace autons
             Intake.move(-127);
         Intake.move(0);
         arms::chassis::move(15, 100, 0.25);
+        arms::chassis::move(-10, 100, 0.25);
+        arms::chassis::turn(90, 100);
+        arms::chassis::move(10, 100, 0.25);
     }
 
     void blueRightStart()
     {
         setHue();
+        arms::chassis::move(10, 100, 0.25, arms::REVERSE);
     }
 }
