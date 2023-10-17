@@ -26,7 +26,12 @@ namespace autons
         while (!isTriBall(IntakeOpticalIn) && isTriBall(IntakeOpticalOut))
             Intake.move(127);
         Intake.move(0);
-        arms::chassis::move({42, 0, 270}, 100, 0.25);
+        arms::chassis::move({33, -15, 270}, 100, 0.25);
+        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
+            Intake.move(-127);
+        Intake.move(0);
+        arms::chassis::move({35, -15}, 100, 0.25);
+
     }
 
     void blueRightStart()
