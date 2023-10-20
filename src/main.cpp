@@ -57,6 +57,7 @@ void opcontrol()
             if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT))
                 selector::init();
         selector::debugRuns();
+
         setDriveMotors();
         setIntakeMotor();
         setPistonStates();

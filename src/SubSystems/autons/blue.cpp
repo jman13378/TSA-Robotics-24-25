@@ -15,23 +15,24 @@ namespace autons
         IntakeOut = true;
         setIntakePiston(true);
         arms::odom::reset({0, 0}, 0); // Reset point
-        arms::chassis::move({42, 0}, 100, 0.25);
-        arms::chassis::turn(270, 100);
+        arms::chassis::move({42.5, 0}, 100, 0.25);
+        arms::chassis::turn(270, 100, 0.25, 1.85);
+        arms::chassis::move({42.5, -2}, 100, 0.25);
+
         while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
             Intake.move(-127);
         Intake.move(0);
-        arms::chassis::move({42, -15}, 100, 0.25);
-        arms::chassis::move({42, -5}, 100, 0.25);
+    
+        arms::chassis::move({42.5, 5}, 100, 0.25);
         arms::chassis::move({30, 15}, 100, 0.25);
         while (!isTriBall(IntakeOpticalIn) && isTriBall(IntakeOpticalOut))
             Intake.move(127);
         Intake.move(0);
-        arms::chassis::move({33, -15, 270}, 100, 0.25);
+        arms::chassis::move({42.5, 0, 270}, 100, 0.25);
         while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
             Intake.move(-127);
         Intake.move(0);
-        arms::chassis::move({35, -15}, 100, 0.25);
-
+        arms::chassis::move({42.5, -3}, 100, 0.25);
     }
 
     void blueRightStart()
