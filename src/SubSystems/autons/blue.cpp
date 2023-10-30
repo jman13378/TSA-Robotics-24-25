@@ -18,7 +18,7 @@ namespace autons
         arms::chassis::move({42.5, 0}, 100, 0.25);
         arms::chassis::turn(270, 100, 0.25, 1.85);
         arms::chassis::move({42.5, -2}, 100, 0.25);
-
+        controller.print(0,0,"%g, %g",arms::odom::getPosition().x,arms::odom::getPosition().y);
         while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
             Intake.move(-127);
         Intake.move(0);
@@ -33,6 +33,8 @@ namespace autons
             Intake.move(-127);
         Intake.move(0);
         arms::chassis::move({42.5, -3}, 100, 0.25);
+                controller.print(0,0,"%g, %g",arms::odom::getPosition().x,arms::odom::getPosition().y);
+
     }
 
     void blueRightStart()
