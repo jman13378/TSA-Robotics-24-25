@@ -9,7 +9,6 @@ void initialize()
 
     arms::init();
     arms::selector::destroy();
-
     selector::init(-1);
     while ((*arms::odom::imu).is_calibrating())
     {
