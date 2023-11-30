@@ -5,8 +5,12 @@
 
 namespace controls
 {
+        pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
+        pros::controller_digital_e_t intakeOut = pros::E_CONTROLLER_DIGITAL_L2;
         pros::controller_digital_e_t cata = pros::E_CONTROLLER_DIGITAL_RIGHT;
         pros::controller_digital_e_t wings = pros::E_CONTROLLER_DIGITAL_Y;
+        pros::controller_digital_e_t intakeOverride = pros::E_CONTROLLER_DIGITAL_UP;
+
 }
 
 /*

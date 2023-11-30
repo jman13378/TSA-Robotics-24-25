@@ -18,10 +18,11 @@ void setPistonStates()
     // {
     //     IntakeOut = IntakeOut ? false : true;
     // }
-    if (controller.get_digital_new_press(controls::switchdrive))
+    if (controller.get_digital_new_press(controls::wings))
     {
         WingsOut = WingsOut ? false : true;
     }
+    
     //setIntakePiston(IntakeOut);
     setWingPiston(WingsOut);
 }

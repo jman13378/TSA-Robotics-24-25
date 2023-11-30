@@ -38,7 +38,7 @@ void autonomous()
 {
     selector::shutdown();
     selector::runauton();
-    //selector::runauton();
+    // selector::runauton();
 
     // if (au)
     //   arms::odom::reset({0, 0}, 0);
@@ -53,7 +53,7 @@ void opcontrol()
     while (true)
     {
         if (debug)
-            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT))
+            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT))
                 selector::init();
         selector::debugRuns();
 

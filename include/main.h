@@ -34,7 +34,7 @@
  * For instance, you can do `4_mtr = 50` to set motor 4's target velocity to 50
  */
 #define PROS_USE_LITERALS
-
+// default for pros
 #include "api.h"
 
 /**
@@ -84,12 +84,16 @@ extern "C"
 
 #include "ARMS/api.h"
 
+// initialize all motors and pneumatics
+
 extern pros::Motor Intake;
 extern pros::Motor Catapult;
 extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
 extern pros::ADIDigitalOut WingPu1;
 extern pros::ADIDigitalOut WingPu2;
+
+/// initialize all variables
 
 extern int hueRange[2][2];
 extern bool debug;
@@ -100,8 +104,9 @@ extern pros::Optical IntakeOpticalIn;
 extern pros::Optical IntakeOpticalOut;
 extern pros::Controller controller;
 
-void setDriveMotors();
+// initialize functions
 
+void setDriveMotors();
 void setIntakeMotor();
 void setIntake(int power);
 bool isTriBall(pros::Optical op);
@@ -109,9 +114,10 @@ void setPistonStates();
 void setIntakePiston(bool trigger);
 void setWingPiston(bool trigger);
 int cataControl();
-
 extern bool shoot;
 extern pros::ADIDigitalIn CataBumper;
+// initialize namespaces
+
 namespace autons
 {
     void redLeftStart();
@@ -120,10 +126,14 @@ namespace autons
     void blueRightStart();
     void autonskills();
 }
-namespace controls {
+namespace controls
+{
+    pros::controller_digital_e_t intakeIn;
+    pros::controller_digital_e_t intakeOut;
 
-    pros::controller_digital_e_t intakein;
-    pros::controller_digital_e_t intakeout;
     pros::controller_digital_e_t cata;
-    pros::controller_digital_e_t switchdrive;
+    pros::controller_digital_e_t wings;
+    pros::controller_digital_e_t intakeOverride;
+
 }
+// most objects will be initialized in globals.cpp
