@@ -120,3 +120,10 @@ namespace autons
     void blueRightStart();
     void autonskills();
 }
+namespace controls {
+
+    pros::controller_digital_e_t intakein;
+    pros::controller_digital_e_t intakeout;
+    pros::controller_digital_e_t cata;
+    pros::controller_digital_e_t switchdrive;
+}

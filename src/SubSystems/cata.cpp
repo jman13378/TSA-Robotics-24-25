@@ -51,7 +51,7 @@ int cataControl()
         {
             beenPressed = true;
             Catapult.move(0);
-            if (beenPressed && IntakeOut == true && (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A) || shoot))
+            if (beenPressed && IntakeOut == true && (controller.get_digital_new_press(controls::cata) || shoot))
             {
                 Catapult.move(127);
                 wait();

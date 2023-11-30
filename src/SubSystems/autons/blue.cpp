@@ -10,7 +10,7 @@ namespace autons
         hueRange[1][0] = 215;
         hueRange[1][1] = 140;
     }
-    
+
     void blueLeftStart()
     {
         // account for the blue triballs(pre-load)
