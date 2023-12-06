@@ -1,6 +1,11 @@
 #include "main.h"
 #include "ARMS/config.h"
 #include "ui.h"
+#include <map>
+#include <iostream>
+#include <sstream>
+#include <string>
+std::stringstream mapper("t");
 
 bool debug = true;
 void initialize()
@@ -37,8 +42,9 @@ void competition_initialize() {}
 void autonomous()
 {
     selector::shutdown();
-    selector::runauton();
+    printf(mapper.str().c_str());
     // selector::runauton();
+    //  selector::runauton();
 
     // if (au)
     //   arms::odom::reset({0, 0}, 0);
@@ -48,10 +54,18 @@ void autonomous()
 
 void opcontrol()
 {
+    arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
+
+        if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
+        {
+
+            printf("%l",arms::odom::getPosition().x);
+            mapper << "x:" << arms::odom::getPosition().x << ",y:" << arms::odom::getPosition().y << ",h:" << arms::odom::getHeading() << std::endl;
+        }
         if (debug)
             if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT))
                 selector::init();

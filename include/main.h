@@ -103,6 +103,7 @@ extern bool overrideIntake;
 extern pros::Optical IntakeOpticalIn;
 extern pros::Optical IntakeOpticalOut;
 extern pros::Controller controller;
+extern pros::Controller controller2;
 
 // initialize functions
 
@@ -111,7 +112,7 @@ void setIntakeMotor();
 void setIntake(int power);
 bool isTriBall(pros::Optical op);
 void setPistonStates();
-void setIntakePiston(bool trigger);
+// void setIntakePiston(bool trigger);
 void setWingPiston(bool trigger);
 int cataControl();
 extern bool shoot;
@@ -126,14 +127,14 @@ namespace autons
     void blueRightStart();
     void autonskills();
 }
-namespace controls
+ namespace controls
 {
-    pros::controller_digital_e_t intakeIn;
-    pros::controller_digital_e_t intakeOut;
+    extern pros::controller_digital_e_t intakeIn;
+    extern pros::controller_digital_e_t intakeOut;
 
-    pros::controller_digital_e_t cata;
-    pros::controller_digital_e_t wings;
-    pros::controller_digital_e_t intakeOverride;
+    extern pros::controller_digital_e_t cata;
+    extern pros::controller_digital_e_t wings;
+    extern pros::controller_digital_e_t intakeOverride;
 
 }
 // most objects will be initialized in globals.cpp
