@@ -43,7 +43,7 @@ void autonomous()
 {
     selector::shutdown();
     printf(mapper.str().c_str());
-    // selector::runauton();
+    selector::runauton();
     //  selector::runauton();
 
     // if (au)

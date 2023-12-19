@@ -75,13 +75,13 @@ pros::ADIDigitalIn CataBumper('C');
 pros::ADIDigitalOut WingPu1('D');
 pros::ADIDigitalOut WingPu2('E');
 
-pros::Optical IntakeOpticalIn(14);
+pros::Optical IntakeOpticalIn(2);
 
-pros::Optical IntakeOpticalOut(15);
+pros::Optical IntakeOpticalOut(3);
 
-pros::Motor Intake(13, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Intake(6, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
-pros::Motor Catapult(3, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Catapult(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 pros::Controller controller2(pros::E_CONTROLLER_PARTNER);

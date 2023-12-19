@@ -43,7 +43,7 @@ int cataControl()
     bool beenPressed = false;
     while (1)
     {
-        if (!CataBumper.get_value() && !beenPressed && IntakeOut == true)
+        if (!CataBumper.get_value() && !beenPressed)
         {
             Catapult.move(127);
         }
@@ -51,7 +51,7 @@ int cataControl()
         {
             beenPressed = true;
             Catapult.move(0);
-            if (beenPressed && IntakeOut == true && (controller.get_digital_new_press(controls::cata) || shoot))
+            if (beenPressed  && (controller.get_digital_new_press(controls::cata) || shoot))
             {
                 Catapult.move(127);
                 wait();

@@ -29,7 +29,7 @@ namespace autons
             Intake.move(-127);
         Intake.move(0);
 
-        arms::chassis::move({30.5, 5}, 100, 0.25);
+        arms::chassis::move({30.5, -7}, 100, 0.25);
         loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
 
         arms::chassis::move({30, 15}, 100, 0.25);
