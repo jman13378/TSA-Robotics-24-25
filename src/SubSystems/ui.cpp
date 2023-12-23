@@ -192,7 +192,7 @@ namespace selector
 	{
 
 		if (auton == 0)
-			autons::autonskills();
+			autons::autonSkills();
 
 		else if (auton == 1)
 			autons::redLeftStart();

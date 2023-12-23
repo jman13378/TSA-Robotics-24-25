@@ -1,7 +1,7 @@
 #include "main.h"
 namespace autons
 {
-    void autonskills()
+    void autonSkills()
     {
         double coords[2][3] = {{0,0,0},{27.7,7.6,42.8}};
         arms::odom::reset({0, 0}, 0);

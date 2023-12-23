@@ -8,8 +8,9 @@ namespace controls
         pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
         pros::controller_digital_e_t intakeOut = pros::E_CONTROLLER_DIGITAL_L2;
         pros::controller_digital_e_t cata = pros::E_CONTROLLER_DIGITAL_RIGHT;
-        pros::controller_digital_e_t wings = pros::E_CONTROLLER_DIGITAL_Y;
+        pros::controller_digital_e_t wings = pros::E_CONTROLLER_DIGITAL_B;
         pros::controller_digital_e_t intakeOverride = pros::E_CONTROLLER_DIGITAL_UP;
+        pros::controller_digital_e_t driveSwitch = pros::E_CONTROLLER_DIGITAL_Y;
 
 }
 
@@ -79,11 +80,13 @@ pros::Optical IntakeOpticalIn(2);
 
 pros::Optical IntakeOpticalOut(3);
 
-pros::Motor Intake(6, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
-pros::Motor Catapult(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Catapult(5, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor IntakeStartMotor(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 pros::Controller controller2(pros::E_CONTROLLER_PARTNER);
 bool IntakeOut = false;
 bool WingsOut = false;
+bool DriveReverse = false;

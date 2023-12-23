@@ -22,7 +22,12 @@ void setPistonStates()
     {
         WingsOut = WingsOut ? false : true;
     }
-    
+        if (controller.get_digital_new_press(controls::driveSwitch))
+    {
+        DriveReverse = DriveReverse ? false : true;
+    }
     //setIntakePiston(IntakeOut);
     setWingPiston(WingsOut);
+
+
 }

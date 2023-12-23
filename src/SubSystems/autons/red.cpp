@@ -1,32 +1,57 @@
 #include "main.h"
+#include <iostream>
+#include <sstream>
+#include <string>
 namespace autons
 {
-
+     void setRedHue()
+    {
+        hueRange[1][0] = 215;
+        hueRange[1][1] = 140;
+    }
     void redLeftStart()
     {
-        arms::odom::reset({0, 0}, 0); // Reset point
+        setRedHue();
+          // account for the blue triballs(pre-load)
+        setBlueHue();
+        std::stringstream loid("t");
+        IntakeOut = true;
 
-        arms::chassis::move({2, 0});
-        controller.print(0, 0, "%lf %lf", arms::odom::getPosition().x, arms::odom::getPosition().y);
+        arms::odom::reset({0, 0}, 0); // Reset point
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+
+        arms::chassis::move({30.5, 0, 270}, 100, 0.250);
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+
+        // arms::chassis::move({30.5, -2}, 100, 0.25);
+        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
+            Intake.move(-127);
+        Intake.move(0);
+
+        arms::chassis::move({30.5, -17}, 100, 0.25);
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+
+        arms::chassis::move({23, 20}, 100, 0.25);
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+
+        while (!isTriBall(IntakeOpticalIn) && isTriBall(IntakeOpticalOut))
+            Intake.move(127);
+        Intake.move(0);
+        arms::chassis::move({29.5, 0, 270}, 100, 0.25);
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+
+        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
+            Intake.move(-127);
+        Intake.move(0);
+        arms::chassis::move({29.5, -17}, 100, 0.25);
+        loid << arms::odom::getPosition().x << "," << arms::odom::getPosition().y << std::endl;
+        lv_obj_t *label = lv_label_create(lv_scr_act(), NULL);
+        lv_label_set_text(label, loid.str().c_str());
     }
 
     void redRightStart()
     {
-        arms::odom::reset({0, 0}, 90);
-
-        // arms::chassis::turn(45, 100, 1);
-        arms::chassis::move({0, 60}, 100, 0.25);
-
-        arms::chassis::turn(0, 100, 1);
-
-        arms::chassis::move({24, 60}, 100, 0.25);
-
-        pros::delay(500);
-
-        arms::chassis::move({0, 60}, 100, 0.25, arms::REVERSE);
-
-        arms::chassis::turn(90, 100, 1);
-
-        arms::chassis::move({0, 0}, 100, 0.25, arms::REVERSE);
+        setRedHue();
+    
     }
 }

@@ -117,6 +117,7 @@ void setWingPiston(bool trigger);
 int cataControl();
 extern bool shoot;
 extern pros::ADIDigitalIn CataBumper;
+extern bool DriveReverse;
 // initialize namespaces
 
 namespace autons
@@ -125,7 +126,9 @@ namespace autons
     void redRightStart();
     void blueLeftStart();
     void blueRightStart();
-    void autonskills();
+    void autonSkills();
+    void setRedHue();
+    void setBlueHue();
 }
  namespace controls
 {
@@ -135,6 +138,8 @@ namespace autons
     extern pros::controller_digital_e_t cata;
     extern pros::controller_digital_e_t wings;
     extern pros::controller_digital_e_t intakeOverride;
+
+    extern pros::controller_digital_e_t driveSwitch;
 
 }
 // most objects will be initialized in globals.cpp

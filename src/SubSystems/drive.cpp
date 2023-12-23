@@ -57,12 +57,12 @@ void setDriveMotors()
 
     // Tank
     // arms::chassis::tank(percentPowerL, percentPowerR);
-    percentPowerL = (WingsOut ? -percentPowerL : percentPowerL);
-    percentPowerR = (WingsOut ? -percentPowerR : percentPowerR);
+    percentPowerL = (DriveReverse ? -percentPowerL : percentPowerL);
+    percentPowerR = (DriveReverse ? -percentPowerR : percentPowerR);
     controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
     // Arcade
     if (tank)
-        arms::chassis::tank(WingsOut ? percentPowerR : percentPowerL, WingsOut ? percentPowerL : percentPowerR);
+        arms::chassis::tank(DriveReverse ? percentPowerR : percentPowerL, DriveReverse ? percentPowerL : percentPowerR);
     else
         arms::chassis::arcade(percentPowerL, percentPowerR);
 }
