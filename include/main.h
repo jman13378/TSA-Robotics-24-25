@@ -112,10 +112,11 @@ void setIntakeMotor();
 void setIntake(int power);
 bool isTriBall(pros::Optical op);
 void setPistonStates();
-// void setIntakePiston(bool trigger);
+void setIntakePiston(bool trigger);
 void setWingPiston(bool trigger);
 int cataControl();
 extern bool shoot;
+extern bool IntakeOut;
 extern pros::ADIDigitalIn CataBumper;
 extern bool DriveReverse;
 // initialize namespaces
@@ -134,6 +135,7 @@ namespace autons
 {
     extern pros::controller_digital_e_t intakeIn;
     extern pros::controller_digital_e_t intakeOut;
+    extern pros::controller_digital_e_t intakePnu;
 
     extern pros::controller_digital_e_t cata;
     extern pros::controller_digital_e_t wings;

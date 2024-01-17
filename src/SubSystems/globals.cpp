@@ -7,6 +7,8 @@ namespace controls
 {
         pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
         pros::controller_digital_e_t intakeOut = pros::E_CONTROLLER_DIGITAL_L2;
+                pros::controller_digital_e_t intakePnu = pros::E_CONTROLLER_DIGITAL_R1;
+
         pros::controller_digital_e_t cata = pros::E_CONTROLLER_DIGITAL_RIGHT;
         pros::controller_digital_e_t wings = pros::E_CONTROLLER_DIGITAL_B;
         pros::controller_digital_e_t intakeOverride = pros::E_CONTROLLER_DIGITAL_UP;
@@ -68,10 +70,9 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
  */
 
 int hueRange[2][2] = {{111, 77}};
-// no more intake
-// pros::ADIDigitalOut IntakePu1('A');
+pros::ADIDigitalOut IntakePu1('A');
 
-// pros::ADIDigitalOut IntakePu2('B');
+pros::ADIDigitalOut IntakePu2('B');
 pros::ADIDigitalIn CataBumper('C');
 pros::ADIDigitalOut WingPu1('D');
 pros::ADIDigitalOut WingPu2('E');
