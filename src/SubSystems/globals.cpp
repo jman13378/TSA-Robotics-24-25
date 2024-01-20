@@ -21,23 +21,6 @@ namespace controls
 }
 
 /*
-UP - Override Intake
-LEFT -
-RIGHT -
-DOWN -
-X -
-A - cata
-B -
-Y -
-L1 - INTAKE OUT
-L2 - INTAKE IN
-R1 - INTAKE PNU OUT/IN
-R2 - WINGS PNU OUT/IN
-1 -
-2 - tank right
-3 - tank left
-4 -
-
 
 
 
@@ -62,26 +45,22 @@ b. V5 Smart Motors, connected to Smart Ports, are the only motors that may be us
 Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 */
 
-// port 20 not working
-// left motor
-// placeholder numbers
 
-/**
- * radio - 21
- * IMU - 2
- *
- *
- */
 
-int hueRange[3][2] = {{111, 77}, {145769, 145769}};
+
+
+int hueRange[3][2] = {{100, 80}, {145769, 145769}};
 pros::ADIDigitalOut IntakePu1('A');
-
 pros::ADIDigitalOut IntakePu2('B');
+
 pros::ADIDigitalIn CataBumper('C');
+
 pros::ADIDigitalOut WingPu1('D');
 pros::ADIDigitalOut WingPu2('E');
+
 pros::ADIDigitalOut EndGame1('F');
 pros::ADIDigitalOut EndGame2('G');
+pros::ADIDigitalOut Temp('H');
 
 pros::Optical IntakeOpticalIn(2);
 

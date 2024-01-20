@@ -77,7 +77,7 @@ void opcontrol()
                 selector::init();
         selector::debugRuns();
 
-        // setDriveMotors();
+        setDriveMotors();
         setIntakeMotor();
         setPistonStates();
         pros::delay(10);

@@ -100,15 +100,11 @@ void setFlyWheelMotors()
         if (controller.get_digital(controls::FlyWheel70) || controller.get_digital(controls::FlyWheel100))
         {
             if (controller.get_digital(controls::FlyWheel70))
-                target = 70;
-            else if (controller.get_digital(controls::FlyWheel100))
                 target = 100;
+            else if (controller.get_digital(controls::FlyWheel100))
+                target = 127;
         }
-        else if (n == 1)
-        {
-            n = 1;
-            target = 70;
-        }
+        
         else
         {
             target = 0;

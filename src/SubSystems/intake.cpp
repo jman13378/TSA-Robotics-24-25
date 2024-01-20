@@ -10,7 +10,7 @@ void setIntake(int power)
 bool isTriBall(pros::Optical op)
 {
     double hue = op.get_hue();
-    return ((hue <= hueRange[0][0] && hue >= hueRange[0][1]) || (hue <= hueRange[1][0] && hue >= hueRange[1][1]));
+    return ((hue <= hueRange[0][0] && hue >= hueRange[0][1]) || (hue <= hueRange[1][0] && hue >= hueRange[1][1])|| (hue <= hueRange[2][0] && hue >= hueRange[2][1]));
 }
 void setIntakeMotor()
 {
