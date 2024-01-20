@@ -8,7 +8,8 @@ namespace autons
     void setBlueHue()
     {
         int i = 1;
-        if (hueRange[1][0] == 145769) i =2;
+        if (hueRange[1][0] == 145769)
+            i = 2;
         hueRange[i][0] = 215;
         hueRange[i][1] = 140;
     }

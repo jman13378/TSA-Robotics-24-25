@@ -8,7 +8,7 @@ namespace controls
         pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
         pros::controller_digital_e_t intakeOut = pros::E_CONTROLLER_DIGITAL_L2;
         pros::controller_digital_e_t intakePnu = pros::E_CONTROLLER_DIGITAL_R1;
-        pros::controller_digital_e_t EndGame1 = pros::E_CONTROLLER_DIGITAL_RIGHT;
+        pros::controller_digital_e_t EndGame1 = pros::E_CONTROLLER_DIGITAL_LEFT;
         pros::controller_digital_e_t EndGame2 = pros::E_CONTROLLER_DIGITAL_UP;
         pros::controller_digital_e_t FlyWheel70 = pros::E_CONTROLLER_DIGITAL_X;
         pros::controller_digital_e_t FlyWheel100 = pros::E_CONTROLLER_DIGITAL_A;

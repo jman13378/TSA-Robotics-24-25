@@ -10,9 +10,9 @@ std::stringstream mapper("t");
 bool debug = true;
 void initialize()
 {
-    	pros::Task Flywheelcontrol(FlyWheelControlTask);
+    pros::Task Flywheelcontrol(FlyWheelControlTask);
 
-    //pros::Task CataController(cataControl);
+    // pros::Task CataController(cataControl);
 
     arms::init();
     arms::selector::destroy();
@@ -77,10 +77,7 @@ void opcontrol()
                 selector::init();
         selector::debugRuns();
 
-
-
-
-        setDriveMotors();
+        // setDriveMotors();
         setIntakeMotor();
         setPistonStates();
         pros::delay(10);

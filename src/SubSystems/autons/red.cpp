@@ -4,17 +4,18 @@
 #include <string>
 namespace autons
 {
-     void setRedHue()
+    void setRedHue()
     {
         int i = 1;
-        if (hueRange[1][0] == 145769) i =2;
+        if (hueRange[1][0] == 145769)
+            i = 2;
         hueRange[i][0] = 215;
         hueRange[i][1] = 140;
     }
     void redLeftStart()
     {
         setRedHue();
-          // account for the blue triballs(pre-load)
+        // account for the blue triballs(pre-load)
         setBlueHue();
         std::stringstream loid("t");
         IntakeOut = true;
@@ -54,6 +55,5 @@ namespace autons
     void redRightStart()
     {
         setRedHue();
-    
     }
 }

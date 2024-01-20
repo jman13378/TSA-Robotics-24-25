@@ -1,5 +1,8 @@
 #include "main.h"
 #include "pros/misc.h"
+#include <iostream>
+#include <sstream>
+#include <string>
 void setEndGamePiston(bool trigger)
 {
     EndGame1.set_value(trigger);
@@ -30,15 +33,13 @@ void setPistonStates()
     {
         DriveReverse = DriveReverse ? false : true;
     }
-    if (controller.get_digital(controls::EndGame1) && (controls::EndGame2 != 6 ? controller.get_digital(controls::EndGame2) : true))
+
+    if (controller.get_digital_new_press(controls::EndGame1) && controller.get_digital_new_press(controls::EndGame2))
     {
-        printf("%l","1");
         EndGameOut = EndGameOut ? false : true;
     }
+
     setIntakePiston(IntakeOut);
     setWingPiston(WingsOut);
-    printf("%l","2");
     setEndGamePiston(EndGameOut);
-    printf("%l","3");
-    
 }
