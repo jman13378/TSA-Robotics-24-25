@@ -21,8 +21,8 @@ void setIntakeMotor()
     bool isReverse = false;
     bool isForward = false;
     int intakePower = 127 * (controller.get_digital(controls::intakeOut) - controller.get_digital(controls::intakeIn));
-    isReverse = (intakePower >= 0 ? false : true);
-    isForward = (intakePower <= 0 ? false : true);
+    isReverse = (intakePower <= 0 ? false : true);
+    isForward = (intakePower >= 0 ? false : true);
 
     if (!overrideIntake)
     {
@@ -39,7 +39,7 @@ void setIntakeMotor()
         if (isTriBall(IntakeOpticalOut) && !isReverse)
         {
 
-            intakePower = 127;
+            intakePower = -127;
         }
     }
 

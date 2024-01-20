@@ -1,5 +1,11 @@
 #include "main.h"
 #include "pros/misc.h"
+void setEndGamePiston(bool trigger)
+{
+    EndGame1.set_value(trigger);
+    EndGame2.set_value(trigger);
+}
+
 void setIntakePiston(bool trigger)
 {
     IntakePu1.set_value(trigger);
@@ -24,6 +30,15 @@ void setPistonStates()
     {
         DriveReverse = DriveReverse ? false : true;
     }
-     setIntakePiston(IntakeOut);
+    if (controller.get_digital(controls::EndGame1) && (controls::EndGame2 != 6 ? controller.get_digital(controls::EndGame2) : true))
+    {
+        printf("%l","1");
+        EndGameOut = EndGameOut ? false : true;
+    }
+    setIntakePiston(IntakeOut);
     setWingPiston(WingsOut);
+    printf("%l","2");
+    setEndGamePiston(EndGameOut);
+    printf("%l","3");
+    
 }

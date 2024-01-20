@@ -6,8 +6,10 @@ namespace autons
 {
      void setRedHue()
     {
-        hueRange[1][0] = 215;
-        hueRange[1][1] = 140;
+        int i = 1;
+        if (hueRange[1][0] == 145769) i =2;
+        hueRange[i][0] = 215;
+        hueRange[i][1] = 140;
     }
     void redLeftStart()
     {

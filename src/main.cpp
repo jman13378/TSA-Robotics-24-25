@@ -10,7 +10,9 @@ std::stringstream mapper("t");
 bool debug = true;
 void initialize()
 {
-    pros::Task CataController(cataControl);
+    	pros::Task Flywheelcontrol(FlyWheelControlTask);
+
+    //pros::Task CataController(cataControl);
 
     arms::init();
     arms::selector::destroy();
@@ -55,6 +57,8 @@ void autonomous()
 
 void opcontrol()
 {
+    pros::Task flyWheelMotors(setFlyWheelMotors);
+
     setIntakePiston(true);
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
@@ -72,6 +76,9 @@ void opcontrol()
             if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT))
                 selector::init();
         selector::debugRuns();
+
+
+
 
         setDriveMotors();
         setIntakeMotor();

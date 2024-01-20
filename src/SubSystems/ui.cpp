@@ -120,11 +120,11 @@ namespace selector
 	void othertempinfo()
 	{
 		double IntakeT = Intake.get_temperature();
-		double cata = Catapult.get_temperature();
+		double flywheel = FlyWheel.get_temperature();
 
 		std::stringstream ss;
 
-		ss << "Intake Temp: " << IntakeT << "\nCatapult: " << cata;
+		ss << "Intake Temp: " << IntakeT << "\nFlyWheel: " << flywheel;
 
 		auto temp = ss.str();
 
