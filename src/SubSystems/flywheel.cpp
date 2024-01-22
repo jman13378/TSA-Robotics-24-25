@@ -56,7 +56,7 @@ int FlyWheelControlTask()
                 controller.rumble(".");
             }
 
-            FlyWheel.move(totalOutput);
+            FlyWheel.move(-totalOutput);
         }
 
         else
@@ -104,7 +104,7 @@ void setFlyWheelMotors()
             else if (controller.get_digital(controls::FlyWheel100))
                 target = 127;
         }
-        
+
         else
         {
             target = 0;

@@ -45,10 +45,6 @@ b. V5 Smart Motors, connected to Smart Ports, are the only motors that may be us
 Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 */
 
-
-
-
-
 int hueRange[3][2] = {{100, 80}, {145769, 145769}};
 pros::ADIDigitalOut IntakePu1('A');
 pros::ADIDigitalOut IntakePu2('B');
@@ -67,7 +63,7 @@ pros::Optical IntakeOpticalIn(2);
 pros::Optical IntakeOpticalOut(3);
 
 pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
-pros::Motor FlyWheel(20, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor FlyWheel(19, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Motor IntakeStartMotor(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 

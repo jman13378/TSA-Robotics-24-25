@@ -136,7 +136,7 @@ namespace autons
     void setRedHue();
     void setBlueHue();
 }
- namespace controls
+namespace controls
 {
     extern pros::controller_digital_e_t intakeIn;
     extern pros::controller_digital_e_t intakeOut;

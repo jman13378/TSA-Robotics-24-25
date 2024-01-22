@@ -44,7 +44,7 @@ void competition_initialize() {}
 void autonomous()
 {
     selector::shutdown();
-    setIntakePiston(true);
+    IntakeOut = true;
     printf(mapper.str().c_str());
     selector::runauton();
     //  selector::runauton();
@@ -58,8 +58,7 @@ void autonomous()
 void opcontrol()
 {
     pros::Task flyWheelMotors(setFlyWheelMotors);
-
-    setIntakePiston(true);
+    IntakeOut = true;
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
