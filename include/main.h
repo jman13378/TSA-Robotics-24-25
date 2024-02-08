@@ -103,11 +103,12 @@ extern bool WingsOut;
 extern bool overrideIntake;
 extern pros::Optical IntakeOpticalIn;
 extern pros::Optical IntakeOpticalOut;
+extern pros::Distance SkillsDistance;
+
 extern pros::Controller controller;
 extern pros::Controller controller2;
 
 // initialize functions
-int FlyWheelControlTask();
 void setFlyWheelMotors();
 void setDriveMotors();
 void setIntakeMotor();

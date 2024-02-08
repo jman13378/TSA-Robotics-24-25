@@ -49,7 +49,6 @@ int hueRange[3][2] = {{100, 80}, {145769, 145769}};
 pros::ADIDigitalOut IntakePu1('A');
 pros::ADIDigitalOut IntakePu2('B');
 
-pros::ADIDigitalIn CataBumper('C');
 
 pros::ADIDigitalOut WingPu1('D');
 pros::ADIDigitalOut WingPu2('E');
@@ -61,9 +60,10 @@ pros::ADIDigitalOut Temp('H');
 pros::Optical IntakeOpticalIn(2);
 
 pros::Optical IntakeOpticalOut(3);
+pros::Distance SkillsDistance(12);                                  
 
 pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
-pros::Motor FlyWheel(19, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor FlyWheel(11 , pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Motor IntakeStartMotor(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 

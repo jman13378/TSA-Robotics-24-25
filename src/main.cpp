@@ -10,17 +10,19 @@ std::stringstream mapper("t");
 bool debug = true;
 void initialize()
 {
-    pros::Task Flywheelcontrol(FlyWheelControlTask);
+    //pros::Task Flywheelcontrol(FlyWheelControlTask);
 
     // pros::Task CataController(cataControl);
-
+std::cout << "init1" << std::endl;
     arms::init();
     arms::selector::destroy();
-    selector::init(-1);
+    selector::init(-2);
     while ((*arms::odom::imu).is_calibrating())
     {
         pros::delay(10);
     }
+    std::cout << "init2" << std::endl;
+
 }
 
 /**
@@ -43,6 +45,8 @@ void competition_initialize() {}
 
 void autonomous()
 {
+    std::cout << "auton1" << std::endl;
+
     selector::shutdown();
     IntakeOut = true;
     printf(mapper.str().c_str());
@@ -56,8 +60,8 @@ void autonomous()
 }
 
 void opcontrol()
-{
-    pros::Task flyWheelMotors(setFlyWheelMotors);
+{std::cout << "op1" << std::endl;
+
     IntakeOut = true;
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
@@ -65,17 +69,9 @@ void opcontrol()
     while (true)
     {
 
-        if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
-        {
 
-            printf("%l", arms::odom::getPosition().x);
-            mapper << "x:" << arms::odom::getPosition().x << ",y:" << arms::odom::getPosition().y << ",h:" << arms::odom::getHeading() << std::endl;
-        }
-        if (debug)
-            if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN) && controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT))
-                selector::init();
         selector::debugRuns();
-
+        setFlyWheelMotors();
         setDriveMotors();
         setIntakeMotor();
         setPistonStates();

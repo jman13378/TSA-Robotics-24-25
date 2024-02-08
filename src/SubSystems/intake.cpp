@@ -14,7 +14,7 @@ bool isTriBall(pros::Optical op)
 }
 void setIntakeMotor()
 {
-    if (controller.get_digital_new_press(controls::intakeOverride))
+    if (controller.get_digital(controls::intakeOverride))
     {
         overrideIntake = (overrideIntake ? false : true);
     }
@@ -26,11 +26,9 @@ void setIntakeMotor()
 
     if (!overrideIntake)
     {
-
         // if tri ball is detected and the intake is spinning forward
         if (isTriBall(IntakeOpticalIn) && isForward)
         {
-
             intakePower = 0;
             // return;
         }
@@ -38,7 +36,6 @@ void setIntakeMotor()
 
         if (isTriBall(IntakeOpticalOut) && !isReverse)
         {
-
             intakePower = -127;
         }
     }
