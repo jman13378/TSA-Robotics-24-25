@@ -10,10 +10,10 @@ std::stringstream mapper("t");
 bool debug = true;
 void initialize()
 {
-    //pros::Task Flywheelcontrol(FlyWheelControlTask);
+    // pros::Task Flywheelcontrol(FlyWheelControlTask);
 
     // pros::Task CataController(cataControl);
-std::cout << "init1" << std::endl;
+    std::cout << "init1" << std::endl;
     arms::init();
     arms::selector::destroy();
     selector::init(-2);
@@ -22,7 +22,6 @@ std::cout << "init1" << std::endl;
         pros::delay(10);
     }
     std::cout << "init2" << std::endl;
-
 }
 
 /**
@@ -60,7 +59,9 @@ void autonomous()
 }
 
 void opcontrol()
-{std::cout << "op1" << std::endl;
+{
+    std::cout << "op1" << std::endl;
+
 
     IntakeOut = true;
     arms::odom::reset({0, 0}, 0);
@@ -68,8 +69,8 @@ void opcontrol()
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
-
-
+    if (controller.get_digital_new_press(controls::driveSwitch))
+        std::cout << "x: " << arms::odom::getPosition().x << "y" << arms::odom::getPosition().y << std::endl;
         selector::debugRuns();
         setFlyWheelMotors();
         setDriveMotors();
