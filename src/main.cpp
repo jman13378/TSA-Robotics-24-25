@@ -44,6 +44,7 @@ void competition_initialize() {}
 
 void autonomous()
 {
+    
     std::cout << "auton1" << std::endl;
 
     selector::shutdown();

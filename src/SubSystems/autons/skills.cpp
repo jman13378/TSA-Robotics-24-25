@@ -6,9 +6,8 @@ namespace autons
 
     void autonSkills()
     {
-        IntakeOut = true;
-        setIntake(IntakeOut);
-        pros::delay(10000);
+                IntakeOut = true;
+        setIntakePiston(IntakeOut);
         FlyWheel.move(-127);
     }
 }

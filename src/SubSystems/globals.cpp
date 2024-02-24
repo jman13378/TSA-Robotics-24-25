@@ -8,8 +8,7 @@ namespace controls
         pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
         pros::controller_digital_e_t intakeOut = pros::E_CONTROLLER_DIGITAL_L2;
         pros::controller_digital_e_t intakePnu = pros::E_CONTROLLER_DIGITAL_R1;
-        pros::controller_digital_e_t EndGame1 = pros::E_CONTROLLER_DIGITAL_LEFT;
-        pros::controller_digital_e_t EndGame2 = pros::E_CONTROLLER_DIGITAL_UP;
+        pros::controller_digital_e_t tankswitch = pros::E_CONTROLLER_DIGITAL_UP;
         pros::controller_digital_e_t FlyWheel70 = pros::E_CONTROLLER_DIGITAL_X;
         pros::controller_digital_e_t FlyWheel100 = pros::E_CONTROLLER_DIGITAL_A;
 
@@ -63,7 +62,7 @@ pros::Optical IntakeOpticalOut(3);
 pros::Distance SkillsDistance(12);                                  
 
 pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
-pros::Motor FlyWheel(11 , pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor FlyWheel(13 , pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Motor IntakeStartMotor(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 

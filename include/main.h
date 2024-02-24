@@ -92,8 +92,6 @@ extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
 extern pros::ADIDigitalOut WingPu1;
 extern pros::ADIDigitalOut WingPu2;
-extern pros::ADIDigitalOut EndGame1;
-extern pros::ADIDigitalOut EndGame2;
 
 /// initialize all variables
 
@@ -142,8 +140,7 @@ namespace controls
     extern pros::controller_digital_e_t intakeIn;
     extern pros::controller_digital_e_t intakeOut;
     extern pros::controller_digital_e_t intakePnu;
-    extern pros::controller_digital_e_t EndGame1;
-    extern pros::controller_digital_e_t EndGame2;
+    extern pros::controller_digital_e_t tankswitch;
     extern pros::controller_digital_e_t FlyWheel70;
     extern pros::controller_digital_e_t FlyWheel100;
 

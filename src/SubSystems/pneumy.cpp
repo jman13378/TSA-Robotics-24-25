@@ -3,11 +3,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-void setEndGamePiston(bool trigger)
-{
-    EndGame1.set_value(trigger);
-    EndGame2.set_value(trigger);
-}
 
 void setIntakePiston(bool trigger)
 {
@@ -34,12 +29,8 @@ void setPistonStates()
         DriveReverse = DriveReverse ? false : true;
     }
 
-    if (controller.get_digital_new_press(controls::EndGame1) && controller.get_digital_new_press(controls::EndGame2))
-    {
-        EndGameOut = EndGameOut ? false : true;
-    }
+
 
     setIntakePiston(IntakeOut);
     setWingPiston(WingsOut);
-    setEndGamePiston(EndGameOut);
 }

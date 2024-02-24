@@ -5,7 +5,7 @@ double percentPowerR = 100;
 double lastTime = pros::millis();
 double setPowerL = 0;
 double setPowerR = 0;
-
+bool tankswitch = false;
 int sign(double x)
 {
     if (x > 0)
@@ -18,6 +18,15 @@ int sign(double x)
 
 void setDriveMotors()
 {
+        if (controller.get_digital_new_press(controls::tankswitch))
+    {
+        tankswitch = !tankswitch;
+    }
+    if (controller.get_digital_new_press(controls::driveSwitch))
+    {
+        DriveReverse = !DriveReverse;
+    }
+    
     bool tank = true;
 
     // Tank
@@ -26,7 +35,7 @@ void setDriveMotors()
 
     // Arcade
     double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    double rightJoyStick = controller.get_analog(tank
+    double rightJoyStick = controller.get_analog(tank&&!tankswitch
                                                      ? pros::E_CONTROLLER_ANALOG_RIGHT_Y
                                                      : pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
@@ -65,11 +74,9 @@ void setDriveMotors()
     controller.print(0, 0, "Drive: %s, IO: %s", (DriveReverse ? "Reverse" : "Forward"), (overrideIntake ? "yes" : "no "));
     
     //controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
-    
-    
-    
+
     // Arcade
-    if (tank)
+    if (tank && !tankswitch)
         arms::chassis::tank(DriveReverse ? percentPowerR : percentPowerL, DriveReverse ? percentPowerL : percentPowerR);
     else
         arms::chassis::arcade(percentPowerL, percentPowerR);
