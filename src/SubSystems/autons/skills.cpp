@@ -8,6 +8,6 @@ namespace autons
     {
                 IntakeOut = true;
         setIntakePiston(IntakeOut);
-        FlyWheel.move(-127);
+        FlyWheel.move(FlyWheelPower);
     }
 }

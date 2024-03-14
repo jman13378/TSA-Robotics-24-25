@@ -63,6 +63,7 @@ void opcontrol()
 {
     std::cout << "op1" << std::endl;
 
+        std::cout << "Hello, World!" << FlyWheelPower << std::endl;
 
     IntakeOut = true;
     arms::odom::reset({0, 0}, 0);
@@ -77,6 +78,7 @@ void opcontrol()
         setDriveMotors();
         setIntakeMotor();
         setPistonStates();
+        //FreezeTag();
         pros::delay(10);
     }
 }

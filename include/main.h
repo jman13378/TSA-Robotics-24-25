@@ -92,6 +92,8 @@ extern pros::ADIDigitalOut IntakePu1;
 extern pros::ADIDigitalOut IntakePu2;
 extern pros::ADIDigitalOut WingPu1;
 extern pros::ADIDigitalOut WingPu2;
+extern pros::ADIDigitalIn FreezeTag1;
+extern pros::ADIDigitalIn FreezeTag2;
 
 /// initialize all variables
 
@@ -117,7 +119,12 @@ void setIntakePiston(bool trigger);
 void setWingPiston(bool trigger);
 void setEndGamePiston(bool trigger);
 int cataControl();
+int FreezeTag();
 
+extern pros::Motor IntakeStartMotor;
+extern bool Disabled;
+extern int timespressed;
+extern int FlyWheelPower;
 extern bool shoot;
 extern bool IntakeOut;
 extern bool EndGameOut;

@@ -8,5 +8,5 @@ void setFlyWheelMotors()
         pressed = false;
     if (controller.get_digital(controls::FlyWheel100))
         pressed = true;
-    FlyWheel.move(pressed ? -127 : 0);
+    FlyWheel.move(pressed ? FlyWheelPower: 0);
 }

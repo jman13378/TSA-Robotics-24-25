@@ -1,8 +1,8 @@
 #include "main.h"
-#include "pros/misc.h"
-#include "pros/misc.hpp"
-#include "pros/motors.h"
 
+#include <iostream>
+#include <sstream>
+#include <string>
 namespace controls
 {
         pros::controller_digital_e_t intakeIn = pros::E_CONTROLLER_DIGITAL_L1;
@@ -54,7 +54,8 @@ pros::ADIDigitalOut WingPu2('E');
 
 pros::ADIDigitalOut EndGame1('F');
 pros::ADIDigitalOut EndGame2('G');
-pros::ADIDigitalOut Temp('H');
+
+
 
 pros::Optical IntakeOpticalIn(2);
 
@@ -64,7 +65,6 @@ pros::Distance SkillsDistance(12);
 pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 pros::Motor FlyWheel(13 , pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
-pros::Motor IntakeStartMotor(4, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 pros::Controller controller2(pros::E_CONTROLLER_PARTNER);
@@ -72,3 +72,7 @@ bool EndGameOut = false;
 bool IntakeOut = false;
 bool WingsOut = false;
 bool DriveReverse = false;
+int FlyWheelPower = -100 ;
+
+
+

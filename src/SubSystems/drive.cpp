@@ -71,7 +71,7 @@ void setDriveMotors()
     
 
 
-    controller.print(0, 0, "Drive: %s, IO: %s", (DriveReverse ? "Reverse" : "Forward"), (overrideIntake ? "yes" : "no "));
+    //controller.print(0, 0, "Drive: %s, IO: %s", (DriveReverse ? "Reverse" : "Forward"), (overrideIntake ? "yes" : "no "));
     
     //controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
 

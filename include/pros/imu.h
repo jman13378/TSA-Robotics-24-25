@@ -9,7 +9,7 @@
  * This file should not be modified by users, since it gets replaced whenever
  * a kernel upgrade occurs.
  *
- * Copyright (c) 2017-2022, Purdue University ACM SIGBots.
+ * \copyright Copyright (c) 2017-2023, Purdue University ACM SIGBots.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -29,7 +29,8 @@ namespace c {
 #endif
 
 typedef enum imu_status_e {
-	E_IMU_STATUS_CALIBRATING = 0x01,
+	E_IMU_STATUS_READY = 0, // IMU is connected but not currently calibrating
+	E_IMU_STATUS_CALIBRATING = 19, // IMU is calibrating
 	E_IMU_STATUS_ERROR = 0xFF,  // NOTE: used for returning an error from the get_status function, not that the IMU is
 	                            // necessarily in an error state
 } imu_status_e_t;
