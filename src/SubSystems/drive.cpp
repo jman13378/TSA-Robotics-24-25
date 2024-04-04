@@ -78,6 +78,7 @@ void setDriveMotors()
     // Arcade
     if (tank && !tankswitch)
         arms::chassis::tank(DriveReverse ? percentPowerR : percentPowerL, DriveReverse ? percentPowerL : percentPowerR);
+        
     else
         arms::chassis::arcade(percentPowerL, percentPowerR);
 }

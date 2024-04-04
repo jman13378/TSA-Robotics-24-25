@@ -62,7 +62,7 @@ pros::Optical IntakeOpticalIn(2);
 pros::Optical IntakeOpticalOut(3);
 pros::Distance SkillsDistance(12);                                  
 
-pros::Motor Intake(4, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Intake(6, pros::E_MOTOR_GEAR_GREEN, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 pros::Motor FlyWheel(13 , pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 
