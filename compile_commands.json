@@ -433,11 +433,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/SubSystems/globals.cpp.o",
-            "src\\SubSystems\\globals.cpp"
+            "bin/SubSystems/intake.cpp.o",
+            "src\\SubSystems\\intake.cpp"
         ],
         "directory": "C:\\Users\\jonah\\OneDrive\\Documents\\2023-2024-VEX-over-under\\Over-Under",
-        "file": "src\\SubSystems\\globals.cpp"
+        "file": "src\\SubSystems\\intake.cpp"
     },
     {
         "arguments": [
@@ -473,10 +473,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/SubSystems/intake.cpp.o",
-            "src\\SubSystems\\intake.cpp"
+            "bin/SubSystems/globals.cpp.o",
+            "src\\SubSystems\\globals.cpp"
         ],
         "directory": "C:\\Users\\jonah\\OneDrive\\Documents\\2023-2024-VEX-over-under\\Over-Under",
-        "file": "src\\SubSystems\\intake.cpp"
+        "file": "src\\SubSystems\\globals.cpp"
     }
 ]

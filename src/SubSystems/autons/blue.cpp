@@ -55,5 +55,6 @@ namespace autons
     void blueLeftStart()
     {
         setBlueHue();
+        blueRightStart();
     }
 }
