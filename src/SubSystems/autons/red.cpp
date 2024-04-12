@@ -14,7 +14,6 @@ namespace autons
     }
     void redLeftStart()
     {
-        arms::odom::reset({0, 0}, 0); // Reset point
         setRedHue();
         blueRightStart();
         // arms::chassis::leftMotors.get(0)->move(127);
@@ -26,7 +25,6 @@ namespace autons
 
     void redRightStart()
     {
-        arms::odom::reset({0, 0}, 0); // Reset point
         setRedHue();
         blueRightStart();
     }
