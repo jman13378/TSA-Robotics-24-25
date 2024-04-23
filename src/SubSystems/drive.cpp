@@ -18,7 +18,7 @@ int sign(double x)
 
 void setDriveMotors()
 {
-        if (controller.get_digital_new_press(controls::tankswitch))
+    if (controller.get_digital_new_press(controls::tankswitch))
     {
         tankswitch = !tankswitch;
     }
@@ -26,7 +26,7 @@ void setDriveMotors()
     {
         DriveReverse = !DriveReverse;
     }
-    
+
     bool tank = true;
 
     // Tank
@@ -35,7 +35,7 @@ void setDriveMotors()
 
     // Arcade
     double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    double rightJoyStick = controller.get_analog(tank&&!tankswitch
+    double rightJoyStick = controller.get_analog(tank && tankswitch
                                                      ? pros::E_CONTROLLER_ANALOG_RIGHT_Y
                                                      : pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
@@ -64,21 +64,23 @@ void setDriveMotors()
     if (percentPowerR > 127)
         percentPowerR = 127;
 
+    if (controller.get_digital_new_press(controls::driveSwitch))
+        DriveReverse = !DriveReverse;
+    std::cout << "x: " << DriveReverse << std::endl;
+
     // Tank
     // arms::chassis::tank(percentPowerL, percentPowerR);
     percentPowerL = (DriveReverse ? -percentPowerL : percentPowerL);
-    percentPowerR = (DriveReverse ? -percentPowerR : percentPowerR);
-    
+    percentPowerR = (DriveReverse ? percentPowerR : percentPowerR);
 
+    controller.print(0, 0, "Drive: %s, IO: %s", (DriveReverse ? "Reverse" : "Forward"), (overrideIntake ? "yes" : "no "));
 
-    //controller.print(0, 0, "Drive: %s, IO: %s", (DriveReverse ? "Reverse" : "Forward"), (overrideIntake ? "yes" : "no "));
-    
-    //controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
+    // controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
 
     // Arcade
-    if (tank && !tankswitch)
+    if (tank && tankswitch)
         arms::chassis::tank(DriveReverse ? percentPowerR : percentPowerL, DriveReverse ? percentPowerL : percentPowerR);
-        
+
     else
         arms::chassis::arcade(percentPowerL, percentPowerR);
 }

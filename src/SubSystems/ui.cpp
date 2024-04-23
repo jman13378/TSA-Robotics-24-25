@@ -190,6 +190,10 @@ namespace selector
 
 	void runauton()
 	{
+		if (auton == -1 || auton == -2)
+			autons::setBlueHue();
+		else if (auton == 2 || auton == 1)
+			autons::setRedHue();
 
 		if (auton == 0)
 			autons::autonSkills();

@@ -17,44 +17,39 @@ namespace autons
     void blueRightStart()
     {
         // account for the blue triballs(pre-load)
-        setBlueHue();
         IntakeOut = true;
         setIntakePiston(IntakeOut);
 
-
-
         arms::odom::reset({0, 0}, 0); // Reset point
 
-        arms::chassis::move({32, 0, 270}, 100, 0.250);
+        arms::chassis::move({39, 0, 270}, 100, 0.250);
 
         // arms::chassis::move({30.5, -2}, 100, 0.25);
-        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
-            Intake.move(-127);
-        Intake.move(0);
-
-
-        arms::chassis::move({32, 5}, 100, 0.25, arms::REVERSE);
-        arms::chassis::move({23, 20}, 100, 0.25);
-
-        while (!isTriBall(IntakeOpticalIn) && isTriBall(IntakeOpticalOut))
+        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalIn2) || isTriBall(IntakeOpticalOut))
             Intake.move(127);
         Intake.move(0);
-        arms::chassis::move({30, 0, 270}, 100, 0.25);
 
-        while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalOut))
+        arms::chassis::move({39, 5}, 100, 0.25, arms::REVERSE);
+        arms::chassis::move({29,22}, 100, 0.25);
+
             Intake.move(-127);
+            pros::delay(1000);
+        Intake.move(0);
+        arms::chassis::move({35, 5, 270}, 100, 0.25);
+
+        //while (isTriBall(IntakeOpticalIn) || isTriBall(IntakeOpticalIn2) || isTriBall(IntakeOpticalOut))
+            Intake.move(127);
+            pros::delay(1000);
         Intake.move(0);
         IntakeOut = false;
         setIntakePiston(IntakeOut);
-                arms::chassis::move({30, 10}, 100, 0.25, arms::REVERSE);
-
-        arms::chassis::move({30, -20}, 100, 0.25);
-        
+        arms::chassis::move({35, 14}, 100, 0.25, arms::REVERSE);
+        arms::chassis::turn(180,arms::REVERSE);
+        arms::chassis::move({35, -20}, 100, 0.25,arms::REVERSE);
     }
 
     void blueLeftStart()
     {
-        setBlueHue();
         blueRightStart();
     }
 }

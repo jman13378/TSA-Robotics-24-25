@@ -4,6 +4,7 @@
 #include <string>
 namespace autons
 {
+    
     void setRedHue()
     {
         int i = 1;
@@ -14,7 +15,6 @@ namespace autons
     }
     void redLeftStart()
     {
-        setRedHue();
         blueRightStart();
         // arms::chassis::leftMotors.get(0)->move(127);
         //         arms::chassis::leftMotors.get(1)->move(127);
@@ -25,7 +25,6 @@ namespace autons
 
     void redRightStart()
     {
-        setRedHue();
         blueRightStart();
     }
 }

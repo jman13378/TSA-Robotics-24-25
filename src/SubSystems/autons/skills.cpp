@@ -6,7 +6,7 @@ namespace autons
 
     void autonSkills()
     {
-                IntakeOut = true;
+        IntakeOut = true;
         setIntakePiston(IntakeOut);
         FlyWheel.move(FlyWheelPower);
     }

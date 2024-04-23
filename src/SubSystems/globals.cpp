@@ -58,6 +58,7 @@ pros::ADIDigitalOut EndGame2('G');
 
 
 pros::Optical IntakeOpticalIn(2);
+pros::Optical IntakeOpticalIn2(15);
 
 pros::Optical IntakeOpticalOut(3);
 pros::Distance SkillsDistance(12);                                  

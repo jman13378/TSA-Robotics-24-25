@@ -102,6 +102,7 @@ extern bool debug;
 extern bool WingsOut;
 extern bool overrideIntake;
 extern pros::Optical IntakeOpticalIn;
+extern pros::Optical IntakeOpticalIn2;
 extern pros::Optical IntakeOpticalOut;
 extern pros::Distance SkillsDistance;
 

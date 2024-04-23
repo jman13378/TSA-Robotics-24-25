@@ -71,8 +71,6 @@ void opcontrol()
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
-    if (controller.get_digital_new_press(controls::driveSwitch))
-        std::cout << "x: " << arms::odom::getPosition().x << "y" << arms::odom::getPosition().y << std::endl;
         selector::debugRuns();
         setFlyWheelMotors();
         setDriveMotors();
