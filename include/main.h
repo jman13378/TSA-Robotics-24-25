@@ -97,39 +97,20 @@ extern pros::ADIDigitalIn FreezeTag2;
 
 /// initialize all variables
 
-extern int hueRange[3][2];
 extern bool debug;
-extern bool WingsOut;
 extern bool overrideIntake;
-extern pros::Optical IntakeOpticalIn;
-extern pros::Optical IntakeOpticalIn2;
-extern pros::Optical IntakeOpticalOut;
-extern pros::Distance SkillsDistance;
 
 extern pros::Controller controller;
 extern pros::Controller controller2;
 
 // initialize functions
-void setFlyWheelMotors();
 void setDriveMotors();
 void setIntakeMotor();
 void setIntake(int power);
-bool isTriBall(pros::Optical op);
 void setPistonStates();
 void setIntakePiston(bool trigger);
-void setWingPiston(bool trigger);
-void setEndGamePiston(bool trigger);
-int cataControl();
-int FreezeTag();
 
-extern pros::Motor IntakeStartMotor;
 extern bool Disabled;
-extern int timespressed;
-extern int FlyWheelPower;
-extern bool shoot;
-extern bool IntakeOut;
-extern bool EndGameOut;
-extern pros::ADIDigitalIn CataBumper;
 extern bool DriveReverse;
 // initialize namespaces
 
@@ -140,21 +121,11 @@ namespace autons
     void blueLeftStart();
     void blueRightStart();
     void autonSkills();
-    void setRedHue();
-    void setBlueHue();
 }
 namespace controls
 {
-    extern pros::controller_digital_e_t intakeIn;
-    extern pros::controller_digital_e_t intakeOut;
-    extern pros::controller_digital_e_t intakePnu;
     extern pros::controller_digital_e_t tankswitch;
-    extern pros::controller_digital_e_t FlyWheel70;
-    extern pros::controller_digital_e_t FlyWheel100;
 
-    extern pros::controller_digital_e_t cata;
-    extern pros::controller_digital_e_t wings;
-    extern pros::controller_digital_e_t intakeOverride;
 
     extern pros::controller_digital_e_t driveSwitch;
 

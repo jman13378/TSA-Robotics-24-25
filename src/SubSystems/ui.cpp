@@ -119,19 +119,19 @@ namespace selector
 
 	void othertempinfo()
 	{
-		double IntakeT = Intake.get_temperature();
-		double flywheel = FlyWheel.get_temperature();
+		// double IntakeT = Intake.get_temperature();
+		// double flywheel = FlyWheel.get_temperature();
 
-		std::stringstream ss;
+		// std::stringstream ss;
 
-		ss << "Intake Temp: " << IntakeT << "\nFlyWheel: " << flywheel;
+		// ss << "Intake Temp: " << IntakeT << "\nFlyWheel: " << flywheel;
 
-		auto temp = ss.str();
+		// auto temp = ss.str();
 
-		auto othertemptext = temp.c_str();
+		// auto othertemptext = temp.c_str();
 
-		lv_label_set_text(othermotorlabel, othertemptext);
-		lv_obj_align(othermotorlabel, NULL, LV_ALIGN_IN_TOP_RIGHT, -50, 0);
+		// lv_label_set_text(othermotorlabel, othertemptext);
+		// lv_obj_align(othermotorlabel, NULL, LV_ALIGN_IN_TOP_RIGHT, -50, 0);
 	}
 
 	void drivetempinfo()
@@ -190,10 +190,6 @@ namespace selector
 
 	void runauton()
 	{
-		if (auton == -1 || auton == -2)
-			autons::setBlueHue();
-		else if (auton == 2 || auton == 1)
-			autons::setRedHue();
 
 		if (auton == 0)
 			autons::autonSkills();

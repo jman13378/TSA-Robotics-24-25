@@ -4,15 +4,7 @@
 #include <string>
 namespace autons
 {
-    
-    void setRedHue()
-    {
-        int i = 1;
-        if (hueRange[1][0] == 145769)
-            i = 2;
-        hueRange[i][0] = 30;
-        hueRange[i][1] = 10;
-    }
+
     void redLeftStart()
     {
         blueRightStart();
