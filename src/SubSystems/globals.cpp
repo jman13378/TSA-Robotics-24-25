@@ -8,6 +8,10 @@ namespace controls
         pros::controller_digital_e_t tankswitch = pros::E_CONTROLLER_DIGITAL_UP;
 
         pros::controller_digital_e_t driveSwitch = pros::E_CONTROLLER_DIGITAL_Y;
+        pros::controller_digital_e_t armIn = pros::E_CONTROLLER_DIGITAL_L1;
+        pros::controller_digital_e_t armOut = pros::E_CONTROLLER_DIGITAL_L2;
+        pros::controller_digital_e_t clawIn = pros::E_CONTROLLER_DIGITAL_R1;
+        pros::controller_digital_e_t clawOut = pros::E_CONTROLLER_DIGITAL_R2;
 
 }
 
@@ -41,10 +45,14 @@ Robot Brain. The 3-wire ports may not be used to control motors of any kind.
 
 
 
+pros::Motor Arm(19, pros::E_MOTOR_GEAR_RED, true, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Arm2(17, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_ROTATIONS);
+pros::Motor Claw(18, pros::E_MOTOR_GEAR_GREEN, true, pros::E_MOTOR_ENCODER_ROTATIONS);
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 pros::Controller controller2(pros::E_CONTROLLER_PARTNER);
 bool DriveReverse = false;
+int brain = 0;
 
 
 

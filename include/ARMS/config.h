@@ -10,8 +10,8 @@ namespace arms {
 #define ODOM_DEBUG 0
 
 // Negative numbers mean reversed motor
-#define LEFT_MOTORS -6,-7 /*14 , 7*/// clawbot (freezetag)
-#define RIGHT_MOTORS 9,10 /*-9,-10*/// clawbot (freezetag)
+#define LEFT_MOTORS  20,-13/*14 , 7*/// clawbot (freezetag)
+#define RIGHT_MOTORS -11,12 /*-9,-10*/// clawbot (freezetag)
 #define GEARSET pros::E_MOTOR_GEAR_600 // RPM of chassis motors
 
 // Ticks per inch
@@ -23,7 +23,7 @@ namespace arms {
 #define MIDDLE_DISTANCE 0     // Distance from middle wheel to the robot turning center
 
 // Sensors
-#define IMU_PORT 8           // Port 0 for disabled
+#define IMU_PORT 0           // Port 0 for disabled
 #define ENCODER_PORTS 0,0,0//-4,0,0                // Port 0 for disabled
 #define EXPANDER_PORT 0                      // Port 0 for disabled
 #define ENCODER_TYPE arms::odom::ENCODER_ROTATION // The type of encoders

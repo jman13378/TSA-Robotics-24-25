@@ -351,7 +351,7 @@
     "upload_options": {
       "after": "run",
       "description": "TOMATO",
-      "icon": "X",
+      "icon": "pizza",
       "slot": 1
     }
   }

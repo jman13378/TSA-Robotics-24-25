@@ -119,19 +119,20 @@ namespace selector
 
 	void othertempinfo()
 	{
-		// double IntakeT = Intake.get_temperature();
-		// double flywheel = FlyWheel.get_temperature();
+		double arm = Arm.get_temperature();
+		double arm2 = Arm2.get_temperature();
+		double claw = Claw.get_temperature();
 
-		// std::stringstream ss;
+		std::stringstream ss;
 
-		// ss << "Intake Temp: " << IntakeT << "\nFlyWheel: " << flywheel;
+		ss << "Arm Temp: " << arm<< "\nArm2 Temp: " << arm2 << "\nClaw: " << claw;
 
-		// auto temp = ss.str();
+		auto temp = ss.str();
 
-		// auto othertemptext = temp.c_str();
+		auto othertemptext = temp.c_str();
 
-		// lv_label_set_text(othermotorlabel, othertemptext);
-		// lv_obj_align(othermotorlabel, NULL, LV_ALIGN_IN_TOP_RIGHT, -50, 0);
+		lv_label_set_text(othermotorlabel, othertemptext);
+		lv_obj_align(othermotorlabel, NULL, LV_ALIGN_IN_TOP_RIGHT, -50, 0);
 	}
 
 	void drivetempinfo()

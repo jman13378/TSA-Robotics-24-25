@@ -86,14 +86,9 @@ extern "C"
 
 // initialize all motors and pneumatics
 
-extern pros::Motor Intake;
-extern pros::Motor FlyWheel;
-extern pros::ADIDigitalOut IntakePu1;
-extern pros::ADIDigitalOut IntakePu2;
-extern pros::ADIDigitalOut WingPu1;
-extern pros::ADIDigitalOut WingPu2;
-extern pros::ADIDigitalIn FreezeTag1;
-extern pros::ADIDigitalIn FreezeTag2;
+extern pros::Motor Arm;
+extern pros::Motor Arm2;
+extern pros::Motor Claw;
 
 /// initialize all variables
 
@@ -105,11 +100,11 @@ extern pros::Controller controller2;
 
 // initialize functions
 void setDriveMotors();
-void setIntakeMotor();
-void setIntake(int power);
 void setPistonStates();
-void setIntakePiston(bool trigger);
-
+void setClawMotors();
+void setClaw(int power);
+void setArm(int power);
+extern int brain;
 extern bool Disabled;
 extern bool DriveReverse;
 // initialize namespaces
@@ -126,8 +121,11 @@ namespace controls
 {
     extern pros::controller_digital_e_t tankswitch;
 
-
     extern pros::controller_digital_e_t driveSwitch;
+    extern pros::controller_digital_e_t armIn;
+    extern pros::controller_digital_e_t armOut;
+    extern pros::controller_digital_e_t clawIn;
+    extern pros::controller_digital_e_t clawOut;
 
 }
 // most objects will be initialized in globals.cpp

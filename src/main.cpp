@@ -6,21 +6,17 @@
 #include <sstream>
 #include <string>
 std::stringstream mapper("t");
-
 bool debug = true;
 void initialize()
 {
-    // pros::Task Flywheelcontrol(FlyWheelControlTask);
-
-    // pros::Task CataController(cataControl);
+    Arm.set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_HOLD);
+    Arm2.set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_HOLD);
+    Claw.set_brake_mode(pros::motor_brake_mode_e_t::E_MOTOR_BRAKE_HOLD);
     std::cout << "init1" << std::endl;
     arms::init();
     arms::selector::destroy();
     selector::init(-2);
-    while ((*arms::odom::imu).is_calibrating())
-    {
-        pros::delay(10);
-    }
+
     std::cout << "init2" << std::endl;
 }
 
@@ -50,18 +46,13 @@ void autonomous()
     selector::shutdown();
     printf(mapper.str().c_str());
     selector::runauton();
-    //  selector::runauton();
 
-    // if (au)
-    //   arms::odom::reset({0, 0}, 0);
-    // au=false;
-    // chassis::move({24, 0,0}, 100);
 }
 
 void opcontrol()
 {
     std::cout << "op1" << std::endl;
-
+std::cout << "Running Brain in "<< (brain==0 ? "DriveBase" : "Arm" )<< " Mode" << std::endl;
 
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
@@ -70,8 +61,8 @@ void opcontrol()
     {
         selector::debugRuns();
         setDriveMotors();
+        setClawMotors();
         setPistonStates();
-        //FreezeTag();
         pros::delay(10);
         
     }

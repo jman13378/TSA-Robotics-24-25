@@ -28,7 +28,6 @@ void setDriveMotors()
     }
 
     bool tank = true;
-
     // Tank
     // double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
     // double rightJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
