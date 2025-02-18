@@ -59,6 +59,7 @@ void opcontrol()
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+    drive_time = std::chrono::steady_clock::now();
     while (true)
     {
 
@@ -71,7 +72,10 @@ void opcontrol()
         // Convert to seconds and milliseconds
         int seconds = duration.count() / 1000;      // Total seconds
         int milliseconds = duration.count() % 1000; // Remaining milliseconds
-if (seconds>=15) selector::shutdown();
+        int elapsed_seconds = duration.count() / 1000;
+        seconds %=60;
+
+if (elapsed_seconds>=10 && elapsed_seconds<=13) selector::shutdown();
         selector::debugRuns();
         setDriveMotors();
         setClawMotors();

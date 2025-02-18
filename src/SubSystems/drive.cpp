@@ -65,7 +65,6 @@ void setDriveMotors()
 
     if (controller.get_digital_new_press(controls::driveSwitch))
         DriveReverse = !DriveReverse;
-    std::cout << "x: " << DriveReverse << std::endl;
 
     // Tank
     // arms::chassis::tank(percentPowerL, percentPowerR);
