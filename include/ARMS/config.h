@@ -10,8 +10,8 @@ namespace arms {
 #define ODOM_DEBUG 0
 
 // Negative numbers mean reversed motor
-#define LEFT_MOTORS  20,-13/*14 , 7*/// clawbot (freezetag)
-#define RIGHT_MOTORS -11,12 /*-9,-10*/// clawbot (freezetag)
+#define LEFT_MOTORS  20,13/*14 , 7*/// clawbot (freezetag)
+#define RIGHT_MOTORS -11,-12 /*-9,-10*/// clawbot (freezetag)
 #define GEARSET pros::E_MOTOR_GEAR_600 // RPM of chassis motors
 
 // Ticks per inch

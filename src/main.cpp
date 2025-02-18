@@ -5,6 +5,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+std::chrono::_V2::steady_clock::time_point start_time = std::chrono::steady_clock::now();
+std::chrono::_V2::steady_clock::time_point auton_time;
+std::chrono::_V2::steady_clock::time_point drive_time;
 std::stringstream mapper("t");
 bool debug = true;
 void initialize()
@@ -40,30 +43,39 @@ void competition_initialize() {}
 
 void autonomous()
 {
-    
+
     std::cout << "auton1" << std::endl;
 
     selector::shutdown();
     printf(mapper.str().c_str());
     selector::runauton();
-
 }
 
 void opcontrol()
 {
     std::cout << "op1" << std::endl;
-std::cout << "Running Brain in "<< (brain==0 ? "DriveBase" : "Arm" )<< " Mode" << std::endl;
+    std::cout << "Running Brain in " << (brain == 0 ? "DriveBase" : "Arm") << " Mode" << std::endl;
 
     arms::odom::reset({0, 0}, 0);
     // arms::chassis::move({0, 0, 0}, 100, 0.25);
     arms::chassis::setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true)
     {
+
+        // End time: calculate it when you need to measure the elapsed time
+        auto end_time = std::chrono::steady_clock::now();
+
+        // Calculate the elapsed time in milliseconds
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - drive_time);
+
+        // Convert to seconds and milliseconds
+        int seconds = duration.count() / 1000;      // Total seconds
+        int milliseconds = duration.count() % 1000; // Remaining milliseconds
+if (seconds>=15) selector::shutdown();
         selector::debugRuns();
         setDriveMotors();
         setClawMotors();
         setPistonStates();
         pros::delay(10);
-        
     }
 }
