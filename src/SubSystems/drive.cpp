@@ -6,6 +6,8 @@ double lastTime = pros::millis();
 double setPowerL = 0;
 double setPowerR = 0;
 bool tankswitch = false;
+double maxSpeed = 100; // Max speed setting
+
 int sign(double x)
 {
     if (x > 0)
@@ -28,9 +30,6 @@ void setDriveMotors()
     }
 
     bool tank = true;
-    // Tank
-    // double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    // double rightJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
 
     // Arcade
     double leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
@@ -42,7 +41,8 @@ void setDriveMotors()
         leftJoyStick = 0;
     if (fabs(rightJoyStick) < 10)
         rightJoyStick = 0;
-
+    if (controller.get_digital_new_press(controls::speedTgl)) speedTgl = !speedTgl;
+    maxSpeed = speedTgl ? 50 : 100;
     const double max_accel = 100.0 / 1000;
     setPowerL = leftJoyStick;
     setPowerR = rightJoyStick;
@@ -58,6 +58,13 @@ void setDriveMotors()
         deltaR = sign(deltaR) * max_accel * deltaTime;
     percentPowerL += deltaL;
     percentPowerR += deltaR;
+
+    // Apply max speed limit
+    if (percentPowerL > maxSpeed)
+        percentPowerL = maxSpeed;
+    if (percentPowerR > maxSpeed)
+        percentPowerR = maxSpeed;
+
     if (percentPowerL > 127)
         percentPowerL = 127;
     if (percentPowerR > 127)
@@ -67,18 +74,14 @@ void setDriveMotors()
         DriveReverse = !DriveReverse;
 
     // Tank
-    // arms::chassis::tank(percentPowerL, percentPowerR);
     percentPowerL = (DriveReverse ? -percentPowerL : percentPowerL);
     percentPowerR = (DriveReverse ? percentPowerR : percentPowerR);
 
     controller.print(0, 0, "Drive: %s", (DriveReverse ? "Reverse" : "Forward"));
 
-    // controller.print(0, 0, "Drive: %s", (WingsOut ? "Reverse" : "Forward"));
-
     // Arcade
     if (tank && tankswitch)
         arms::chassis::tank(DriveReverse ? percentPowerR : percentPowerL, DriveReverse ? percentPowerL : percentPowerR);
-
     else
         arms::chassis::arcade(percentPowerL, percentPowerR);
 }

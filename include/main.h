@@ -107,6 +107,7 @@ void setArm(int power);
 extern int brain;
 extern bool Disabled;
 extern bool DriveReverse;
+extern bool speedTgl;
 // initialize namespaces
 
 namespace autons
@@ -126,6 +127,7 @@ namespace controls
     extern pros::controller_digital_e_t armOut;
     extern pros::controller_digital_e_t clawIn;
     extern pros::controller_digital_e_t clawOut;
+    extern pros::controller_digital_e_t speedTgl;
 
 }
 // most objects will be initialized in globals.cpp
